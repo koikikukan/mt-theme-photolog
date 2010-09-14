@@ -1,0 +1,235 @@
+/*
+
+name: Black
+designer: Yujiro Araki
+designer_url: http://www.koikikukan.com/ 
+layouts: layout-one-column, layout-three-column, layout-three-column-right, layout-two-column-right, layout-two-column-left
+
+*/
+
+/* すべて */
+* {
+    color: #ccc;
+}
+
+/* リンク */
+a,
+a:link,
+a:visited {
+    color: #ccc;
+}
+a:hover {
+    color: #eee;
+}
+#gallery1 a img,
+#gallery1 a:link img,
+#gallery1 a:visited img {
+    border: 1px solid #aaa;
+}
+#gallery1 a:hover img {
+    border: 1px solid #eee;
+}
+#gallery1 .asset-img-thumb {
+    border: 1px solid #aaa;
+    padding: 5px;
+}
+#gallery2 a,
+#gallery2 a:link,
+#gallery2 a:visited {
+    border: 1px solid #777;
+}
+#gallery2 a:hover {
+    border: 1px solid #aaa;
+}
+
+#search {
+    background: #ccc;
+    border: 1px solid #666;
+}
+.layout-one-column #search {
+    background: #ccc;
+    border:1px solid #666;
+}
+
+/* ヘッダー */
+#header {
+    color: #999;
+}
+#header a,
+#header a:link,
+#header a:visited {
+    color: #ccc;
+    background: transparent;
+}
+#header a:hover {
+    color: #eee;
+}
+#header a:active {}
+
+/* タイトルバナー下の説明 */
+.blog-description {
+    color: #fff;
+}
+
+/* ブログ記事 */
+.main-entry {
+    color: #fff;
+}
+
+/* 引用 */
+blockquote {
+    border: 1px solid #666;
+    background: #f6f6f6;
+}
+.quotetitle { /* 引用文タイトル */
+    border-bottom: 1px solid #666;
+}
+
+pre {
+    background: #f6f6f6;
+    border: 1px solid #999;
+}
+
+input {
+    color: #000;
+}
+
+/* カレンダー */
+.calendarhead {
+    color: #333;
+    background: none;
+}
+span.saturday {
+    color: blue;
+}
+span.sunday {
+    color: #e50003;
+}
+td.today {
+    border: 1px solid #333;
+}
+
+/* サイドメニュータイトル */
+.sidetitle {
+    border-bottom: 1px solid  #ccc;
+    color: #ccc;
+}
+
+/* サイドメニュー */
+.side {
+    background: none;
+    color: #ccc;
+}
+
+/* RSSフィード */
+.syndicate {
+    color: #666;
+}
+
+/* クレジットバナー */
+.module-powered img {
+    border: 1px solid #000;
+    background: #ccc
+}    
+
+/* コメント・トラックバック */
+.layout-two-column-left #trackbacks,
+.layout-two-column-left #comments,
+.layout-two-column-right #trackbacks,
+.layout-two-column-right #comments,
+.layout-one-column #trackbacks,
+.layout-one-column #comments {
+    border:1px solid #aaa;
+    background: #444;
+}
+
+.trackbacks-header,
+.comments-header,
+.comments-open-header {
+    border-bottom:1px solid #ccc;
+}
+.layout-one-column .trackbacks-header,
+.layout-one-column .comments-header,
+.layout-one-column .comments-open-header {
+    color:#ccc;
+}
+
+.trackback-footer,
+.comment-footer {
+    border-top:1px dotted #ccc;
+}
+
+#comment-text {
+    background: #eee;
+    border: 1px solid #666;
+}
+
+.layout-one-column #comment-text {
+  background: #ccc;
+  border: 1px solid #666;
+}
+
+html {
+    background: #000; /* for safari */
+}
+
+#comment-author,
+#comment-email,
+#comment-url {
+    background: #ccc;
+    border: 1px solid #666;
+    height: 25px;
+}
+
+/* カラム切り替え */
+body.layout-three-column,
+body.layout-three-column-right,
+body.layout-two-column-left,
+body.layout-two-column-right,
+body.layout-one-column {
+    background: #000;
+}
+
+#content .blog {
+    border: 1px solid #eee;
+}
+.blog {
+    background-color: #000;
+}
+.communication-blog {
+    background-color: #000;
+}
+
+#communication-content,
+#footer-content {
+    background-color: #000;
+    border: 1px solid #eee;
+}
+
+#links-left-box,
+#links-center-box,
+#links-right-box {
+    background-color: #000;
+}
+
+#links-left-box {
+    border: 1px solid #eee;
+}
+#links-right-box {
+    border: 1px solid #eee;
+}
+.layout-one-column #links-left-box,
+.layout-one-column #links-center-box,
+.layout-one-column #links-right-box {
+    background: #444;
+    border: 1px solid #aaa;
+}
+
+/* フッタ */
+.layout-one-column #footer,
+.layout-three-column #footer,
+.layout-three-column-right #footer,
+.layout-two-column-left #footer,
+.layout-two-column-right #footer {
+    color: #aaa;
+}

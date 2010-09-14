@@ -1,0 +1,193 @@
+<mt:unless name="page_layout" like="column">
+  <mt:setvar name="page_layout" value="layout-one-column" />
+</mt:unless>
+<mt:SetVar name="main_template" value="1" />
+<mt:SetVar name="main_index" value="1" />
+<mt:if name="page_layout" like="layout-three-column">
+  <mt:ignore>3カラムレイアウトの画像サイズとサムネイル表示枚数</mt:ignore>
+  <mt:SetVar name="photo_size" value="350" />
+  <mt:SetVar name="thumbnail_max" value="3" />
+<mt:elseIf name="page_layout" like="layout-two-column">
+  <mt:ignore>2カラムレイアウトの画像サイズとサムネイル表示枚数</mt:ignore>
+  <mt:SetVar name="photo_size" value="400" />
+  <mt:SetVar name="thumbnail_max" value="5" />
+<mt:else>
+  <mt:ignore>1カラムレイアウトの画像サイズとサムネイル表示枚数</mt:ignore>
+  <mt:SetVar name="photo_size" value="450" />
+  <mt:SetVar name="thumbnail_max" value="8" />
+</mt:if>
+<mt:SetVarBlock name="html_head" append="1">
+<script type="text/javascript">
+//<![CDATA[
+var obj = {"item":[
+<mt:Entries limit="$thumbnail_max">
+    {"link":"<mt:EntryPermalink />",
+     "alt":"<mt:EntryTitle escape="html" />",
+     "title":"<mt:EntryTitle escape="html" />",
+  <mt:EntryAssets type="image" lastn="1">
+     "url":"<mt:AssetURL />",
+    <mt:AssetProperty property="image_width" setvar="width" />
+    <mt:AssetProperty property="image_height" setvar="height" />
+    <mt:if name="width" gt="$photo_size">
+     "slideshow":1,
+     "thumbnail":"<mt:AssetThumbnailURL width="$photo_size" />",
+     "content":'<a class="lightbox" href="<mt:AssetURL />"><img src="<mt:AssetThumbnailURL width="$photo_size" />" class="asset-img-thumb" alt="<mt:EntryTitle encode_html="1" />" title="View <mt:EntryTitle encode_html="1" />\'s slideshow" /></a>'},
+      <mt:GetVar name="photo_size" setvar="footer_width" />
+    <mt:elseIf name="height" gt="$photo_size">
+     "slideshow":1,
+     "thumbnail":"<mt:AssetThumbnailURL height="$photo_size" />",
+     "content":'<a class="lightbox" href="<mt:AssetURL />"><img src="<mt:AssetThumbnailURL height="$photo_size" />" class="asset-img-thumb" alt="<mt:EntryTitle encode_html="1" />" title="View <mt:EntryTitle encode_html="1" />\'s slideshow" /></a>'},
+      <mt:GetVar name="height" op="/" value="$photo_size" setvar="tmp" />
+      <mt:GetVar name="width" op="/" value="$tmp" setvar="footer_width" />
+    <mt:else>
+     "slideshow":0,
+     "thumbnail":"<mt:AssetThumbnailURL />",
+     "content":'<img src="<mt:AssetThumbnailURL />" class="asset-img-thumb" alt="<mt:EntryTitle encode_html="1" />" title="<mt:EntryTitle encode_html="1" />（No slideshow）" style="border:1px solid #777;padding:5px" />'},
+      <mt:GetVar name="width" setvar="footer_width" />
+    </mt:if>
+  </mt:EntryAssets>
+</mt:Entries>
+]}
+$(function(){
+    $('#gallery1 a.lightbox').lightBox({
+        imageLoading:'<mt:BlogURL />lightbox/images/lightbox-ico-loading.gif',
+        imageBtnPrev:'<mt:BlogURL />lightbox/images/lightbox-btn-prev.gif',
+        imageBtnNext:'<mt:BlogURL />lightbox/images/lightbox-btn-next.gif',
+        imageBtnClose:'<mt:BlogURL />lightbox/images/lightbox-btn-close.gif',
+        imageBlank:'<mt:BlogURL />lightbox/images/lightbox-blank.gif'
+    });
+    $('#gallery2 li').click(function(settings) {
+        var index = $("#gallery2 li").index(this);
+        var url = obj.item[index].url;
+        var link = obj.item[index].link;
+        var title = obj.item[index].title;
+        var thumbnail = obj.item[index].thumbnail;
+        var slideshow = obj.item[index].slideshow;
+        var content = obj.item[index].content;
+        $('#gallery1').find('img').fadeTo(600,0,function(){
+            $(this).attr('src',thumbnail);
+            $(this).attr('alt',title);
+            $('.main-entry-header a').attr('title','Go to '+title+'\'s page');
+            $('.main-entry-header a').text(title);
+            $('.main-entry-header a').attr('href',link);
+            if (slideshow) {
+                if (($('#gallery1 a').size()) == 0) {
+                    $(this).wrap('<a href="'+url+'" class="lightbox"></a>');
+                } else {
+                    $('#gallery1').find('a').attr('href',url);
+                }
+                $('#gallery1 a.lightbox').lightBox({
+                    imageLoading:'<mt:BlogURL />lightbox/images/lightbox-ico-loading.gif',
+                    imageBtnPrev:'<mt:BlogURL />lightbox/images/lightbox-btn-prev.gif',
+                    imageBtnNext:'<mt:BlogURL />lightbox/images/lightbox-btn-next.gif',
+                    imageBtnClose:'<mt:BlogURL />lightbox/images/lightbox-btn-close.gif',
+                    imageBlank:'<mt:BlogURL />lightbox/images/lightbox-blank.gif'
+                });  
+                $(this).attr('title','View '+title+'\'s slideshow');
+                $(this).fadeTo(1200,1);
+            } else {
+                if (($('#gallery1 a').size()) != 0) {
+                    $('#gallery1').find('a').replaceWith(content); // a要素がなければ実行されない
+                    $('#gallery1').find('img').fadeTo(0,0,function(){ // replace後はfindを再実行
+                        $(this).fadeTo(1200,1);
+                        $(this).attr('title',title+'（No slideshow）');
+                    });
+                } else {
+                    $(this).fadeTo(1200,1);
+                    $(this).attr('title',title+'（No slideshow）');
+                }
+            }
+        });
+        return false;
+    });
+});
+//]]>
+</script>
+</mt:SetVarBlock>
+<mt:include module="ヘッダー" />
+<mt:if name="page_layout" like="layout-three-column-right|layout-three-column-liquid-right">
+<mt:else>
+  <mt:if name="page_layout" like="three|left">
+<div id="links-left-box">
+  <dl id="links-left">
+<mt:include module="サイドバー2" />
+    <mt:if name="page_layout" like="two">
+<mt:include module="サイドバー" />
+    </mt:if>
+  </dl>
+</div>
+  </mt:if>
+</mt:if>
+
+<div id="content">
+  <div class="blog">
+
+<mt:Entries limit="1">
+  <mt:EntryTrackbackData />
+    <div class="main-entry">
+      <h2 class="main-index main-entry-header"><a href="<mt:EntryPermalink />" title="Go to <mt:EntryTitle encode_html="1" />'s page"><mt:EntryTitle encode_html="1" /></a></h2>
+  <mt:EntryAssets type="image" lastn="1">
+      <div id="gallery1">
+    <mt:AssetProperty property="image_width" setvar="width" />
+    <mt:AssetProperty property="image_height" setvar="height" />
+    <mt:if name="width" gt="$photo_size">
+        <a class="lightbox" href="<mt:AssetURL />"><img src="<mt:AssetThumbnailURL width="$photo_size" />" alt="<mt:EntryTitle encode_html="1" />" title="View <mt:EntryTitle encode_html="1" />'s slideshow" /></a>
+      <mt:GetVar name="photo_size" setvar="footer_width" />
+    <mt:elseIf name="height" gt="$photo_size">
+        <a class="lightbox" href="<mt:AssetURL />"><img src="<mt:AssetThumbnailURL height="$photo_size" />" alt="<mt:EntryTitle encode_html="1" />" title="View <mt:EntryTitle encode_html="1" />'s slideshow" /></a>
+      <mt:GetVar name="height" op="/" value="$photo_size" setvar="tmp" />
+      <mt:GetVar name="width" op="/" value="$tmp" setvar="footer_width" />
+    <mt:else>
+        <img src="<mt:AssetThumbnailURL />" class="asset-img-thumb" alt="<mt:EntryTitle encode_html="1" />" title="<mt:EntryTitle encode_html="1" />（No slideshow）" />
+      <mt:GetVar name="width" setvar="footer_width" />
+    </mt:if>
+    <mt:SetVar name="footer_width" op="+" value="14" />
+      </div>
+  </mt:EntryAssets>
+    </div>
+</mt:Entries>
+    <div id="gallery2" class="photolist clearfix">
+      <ul>
+<mt:SetVar name="counter" value="1" />
+<mt:Entries limit="$thumbnail_max">
+  <mt:EntryAssets type="image" lastn="1">
+        <li<mt:if name="counter" eq="1"> class="start"</mt:if> id="e<mt:EntryID />"><a href="<mt:EntryPermalink />" title="<mt:EntryTitle escape="html" />"><img src="<mt:AssetThumbnailURL width="70" square="1" />" class="asset-img-thumb" alt="<mt:EntryTitle escape="html" />" title="Change to <mt:EntryTitle escape="html" />" /></a></li>
+    <mt:SetVar name="counter" op="++" />
+  </mt:EntryAssets>
+</mt:Entries>
+      </ul>
+    </div>
+<mt:SetVar name="counter" op="--" />
+<mt:SetVar name="counter" op="*" value="95" />
+<mt:SetVar name="counter" op="-" value="17" />
+<script type="text/javascript">
+//<![CDATA[
+$('#gallery2').find('ul').css('width','<mt:GetVar name="counter" />px');
+//]]>
+</script>
+  </div>
+<mt:if name="page_layout" ne="layout-one-column">
+  <p id="footer"<mt:if name="page_layout" like="liquid"> class="clearfix"</mt:if>>Copyright &copy; <mt:Entries lastn="1"><mt:EntryDate format="%Y"></mt:Entries> <mt:BlogName encode_html="1" /> All Rights Reserved.</p>
+</mt:if>
+</div>
+
+<mt:if name="page_layout" like="layout-three-column-right|layout-three-column-liquid-right">
+<div id="links-left-box">
+  <dl id="links-left">
+<mt:include module="サイドバー2" />
+  </dl>
+</div>
+</mt:if>
+
+<mt:if name="page_layout" like="three|right">
+<div id="links-right-box">
+  <dl id="links-right">
+  <mt:if name="page_layout" like="two">
+<mt:include module="サイドバー2" />
+  </mt:if>
+<mt:include module="サイドバー" />
+  </dl>
+</div>
+</mt:if>
+
+<mt:include module="フッター" />

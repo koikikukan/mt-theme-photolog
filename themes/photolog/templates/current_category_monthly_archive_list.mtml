@@ -1,0 +1,19 @@
+<mt:if name="archive_class" like="category-archive|category-monthly-archive">
+  <mt:ifArchiveTypeEnabled archive_type="Category-Monthly">
+<dt class="sidetitle">
+Monthly <mt:CategoryLabel />
+</dt>
+
+<dd class="side">
+    <mt:ArchiveList archive_type="Category-Monthly">
+      <mt:ArchiveListHeader>
+  <ul>
+      </mt:ArchiveListHeader>
+    <li><a href="<mt:ArchiveLink />"><mt:ArchiveDate format="%b %Y" language="en" /></a> [<mt:ArchiveCount />]</li>
+      <mt:ArchiveListFooter>
+  </ul>
+      </mt:ArchiveListFooter>
+    </mt:ArchiveList>
+</dd>
+  </mt:ifArchiveTypeEnabled>
+</mt:if>

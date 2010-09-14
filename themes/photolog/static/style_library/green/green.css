@@ -1,0 +1,289 @@
+/*
+
+name: Green
+designer: Yujiro Araki
+designer_url: http://www.koikikukan.com/ 
+layouts: layout-one-column, layout-three-column, layout-three-column-right, layout-two-column-right, layout-two-column-left
+
+*/
+
+/* すべて */
+#content {
+    color: #ddd;
+}
+
+/* リンク */
+a,
+a:link,
+a:visited {
+    color: #ddd;
+}
+a:hover {
+    color: #fff;
+}
+#communication-content a,
+#communication-content a:link,
+#communication-content a:visited,
+#footer-content a,
+#footer-content a:link,
+#footer-content a:visited {
+    color: #ddd;
+}
+#communication-content a:hover,
+#footer-content a:hover {
+    color: #fff;
+}
+
+.layout-one-column #communication-content a,
+.layout-one-column #communication-content a:link,
+.layout-one-column #communication-content a:visited,
+.layout-one-column #footer-content a,
+.layout-one-column #footer-content a:link,
+.layout-one-column #footer-content a:visited {
+    color: #000;
+}
+.layout-one-column #communication-content a:hover,
+.layout-one-column #footer-content a:hover {
+    color: #fff;
+}
+
+h2 a,
+h2 a:link,
+h2 a:visited {
+    color: #ccc;
+}
+h2 a:hover {
+    color: #fff;
+}
+
+#gallery1 a img,
+#gallery1 a:link img,
+#gallery1 a:visited img {
+    border: 1px solid #bbb;
+}
+#gallery1 a:hover img {
+    border: 1px solid #eee;
+}
+#gallery1 .asset-img-thumb {
+    border: 1px solid #bbb;
+    padding: 5px;
+}
+#gallery2 a,
+#gallery2 a:link,
+#gallery2 a:visited {
+    border: 1px solid #999;
+}
+#gallery2 a:hover {
+    border: 1px solid #bbb;
+}
+
+#search {
+    background: #ccc;
+    border: 1px solid #666;
+}
+.layout-one-column #search {
+    background: #ccc;
+    border:1px solid #666;
+}
+
+/* ヘッダー */
+#header {
+    color: #999;
+}
+#header a,
+#header a:link,
+#header a:visited {
+    color: #ccc;
+    background: transparent;
+}
+#header a:hover {}
+#header a:active {}
+
+/* タイトルバナー下の説明 */
+.blog-description {
+    color: #fff;
+}
+
+/* ブログ記事 */
+.main-entry {
+    color: #ddd;
+}
+
+/* 引用 */
+blockquote {
+    border: 1px solid #666;
+    background: #f6f6f6;
+}
+.quotetitle { /* 引用文タイトル */
+    border-bottom: 1px solid #666;
+}
+
+pre {
+    background: #f6f6f6;
+    border: 1px solid #999;
+}
+
+input {
+    color: #000;
+}
+
+/* カレンダー */
+.calendarhead {
+    color: #333;
+    background: none;
+}
+span.saturday {
+    color: blue;
+}
+span.sunday {
+    color: #e50003;
+}
+td.today {
+    border: 1px solid #333;
+}
+
+/* サイドメニュータイトル */
+.sidetitle {
+    border-bottom: 1px solid  #ddd;
+    color: #ddd;
+}
+.layout-one-column .sidetitle {
+    border-bottom: 1px solid  #000;
+    color: #000;
+}
+
+/* サイドメニュー */
+.side {
+    background: none;
+    color: #ddd;
+}
+.layout-one-column .side {
+    color: #000;
+}
+
+/* RSSフィード */
+.syndicate {
+    color: #666;
+}
+
+/* クレジットバナー */
+.module-powered img {
+    border: 1px solid #000;
+    background: #ccc
+}    
+
+#trackbacks,
+#comments {
+    color: #ddd;
+}
+.layout-one-column #trackbacks,
+.layout-one-column #comments {
+    color: #000;
+}
+
+/* コメント・トラックバック */
+.layout-two-column-left #trackbacks,
+.layout-two-column-left #comments,
+.layout-two-column-right #trackbacks,
+.layout-two-column-right #comments,
+.layout-one-column #trackbacks,
+.layout-one-column #comments {
+    border:1px solid #eee;
+    background: #7ca76a;
+}
+
+.trackbacks-header,
+.comments-header,
+.comments-open-header {
+    border-bottom:1px solid #ddd;
+}
+.layout-one-column .trackbacks-header,
+.layout-one-column .comments-header,
+.layout-one-column .comments-open-header {
+    color:#000;
+    border-bottom:1px solid #000;
+}
+
+.trackback-footer,
+.comment-footer {
+    border-top:1px dotted #ddd;
+}
+.layout-one-column .trackback-footer,
+.layout-one-column .comment-footer {
+    border-top:1px dotted #000;
+}
+
+#comment-text {
+    background: #eee;
+    border: 1px solid #666;
+}
+
+.layout-one-column #comment-text {
+  background: #ccc;
+  border: 1px solid #666;
+}
+
+html {
+    background: #19360f; /* for safari */
+}
+
+#comment-author,
+#comment-email,
+#comment-url {
+    background: #ccc;
+    border: 1px solid #666;
+    height: 25px;
+}
+
+/* カラム切り替え */
+body.layout-three-column,
+body.layout-three-column-right,
+body.layout-two-column-left,
+body.layout-two-column-right,
+body.layout-one-column {
+    background: #19360f;
+}
+
+#content .blog {
+    border: 1px solid #ddd;
+}
+.blog {
+    background-color: #1b4b0c;
+}
+.communication-blog {
+    background-color: #1b4b0c;
+}
+
+#communication-content,
+#footer-content {
+    background-color: #1b4b0c;
+    border: 1px solid #ddd;
+}
+
+#links-left-box,
+#links-center-box,
+#links-right-box {
+    background-color: #1b4b0c;
+}
+
+#links-left-box {
+    border: 1px solid #ddd;
+}
+#links-right-box {
+    border: 1px solid #ddd;
+}
+.layout-one-column #links-left-box,
+.layout-one-column #links-center-box,
+.layout-one-column #links-right-box {
+    background: #7ca76a;
+    border: 1px solid #ddd;
+}
+
+/* フッタ */
+.layout-one-column #footer,
+.layout-three-column #footer,
+.layout-three-column-right #footer,
+.layout-two-column-left #footer,
+.layout-two-column-right #footer {
+    color: #aaa;
+}

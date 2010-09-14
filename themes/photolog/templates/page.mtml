@@ -1,0 +1,77 @@
+<mt:unless name="page_layout" like="column">
+  <mt:setvar name="page_layout" value="layout-three-column" />
+</mt:unless>
+<mt:setVar name="body_onload" value="mtEntryOnLoad()" />
+<mt:setVarBlock name="page_title"><mt:pageTitle remove_html="1" /></mt:setVarBlock>
+<mt:include module="ヘッダー" />
+
+<mt:if name="page_layout" like="layout-three-column-right|layout-three-column-liquid-right">
+<mt:else>
+  <mt:if name="page_layout" like="three|left">
+<div id="links-left-box">
+  <dl id="links-left">
+<mt:include module="サイドバー2" />
+    <mt:if name="page_layout" like="two">
+<mt:include module="サイドバー" />
+    </mt:if>
+  </dl>
+</div>
+  </mt:if>
+</mt:if>
+
+<div id="content">
+<div class="blog">
+<mt:include module="ウェブページの詳細" />
+
+<mt:unless name="page_layout" like="layout-one-column">
+<mt:include module="トラックバック" />
+<mt:include module="コメント" />
+</mt:unless>
+
+</div>
+<mt:if name="page_layout" ne="layout-one-column">
+<p id="footer"<mt:if name="page_layout" like="liquid"> class="clearfix"</mt:if>>Copyright &copy; <mt:Entries lastn="1"><mt:EntryDate format="%Y"></mt:Entries> <mt:BlogName encode_html="1" /> All Rights Reserved.</p>
+</mt:if>
+</div>
+
+<mt:if name="page_layout" like="layout-one-column">
+  <mt:SetVar name="communication_flag" value="0" />
+  <mt:ifCommentsActive>
+    <mt:SetVar name="communication_flag" value="1" />
+  <mt:else>
+    <mt:ifPingsActive>
+      <mt:SetVar name="communication_flag" value="1" />
+    </mt:ifPingsActive>
+  </mt:ifCommentsActive>
+  <mt:if name="communication_flag">
+<div id="communication-box">
+  <div id="communication-content">
+    <div class="communication-blog clearfix">
+<mt:include module="トラックバック" />
+<mt:include module="コメント" />
+    </div>
+  </div>
+</div>
+  </mt:if>
+</mt:if>
+
+<mt:if name="page_layout" like="layout-three-column-right|layout-three-column-liquid-right">
+<div id="links-left-box">
+  <dl id="links-left">
+<mt:include module="サイドバー2" />
+  </dl>
+</div>
+</mt:if>
+
+<mt:if name="page_layout" like="three|right">
+<div id="links-right-box">
+  <dl id="links-right">
+  <mt:if name="page_layout" like="two">
+<mt:include module="サイドバー2" />
+  </mt:if>
+<mt:include module="サイドバー" />
+  </dl>
+</div>
+</mt:if>
+
+<mt:include module="フッター" />

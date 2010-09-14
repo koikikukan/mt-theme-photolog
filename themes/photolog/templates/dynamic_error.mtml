@@ -1,0 +1,14 @@
+<mt:setVar name="body_class" value="mt-dynamic-error" />
+<mt:setVar name="system_template" value="1" />
+<mt:setVar name="dynamic_error_template" value="1" />
+<mt:setVarBlock name="page_title">ページが見つかりません</mt:setVarBlock>
+<mt:setVarBlock name="title"><mt:blogName encode_html="1" />: <mt:getVar name="page_title" /></mt:setVarBlock>
+
+<mt:include module="ヘッダー" />
+
+<h1 id="page-title"><mt:getVar name="page_title" /></h1>
+<blockquote>
+  <strong><mt:errorMessage /></strong>
+</blockquote>
+
+<mt:include module="フッター" />

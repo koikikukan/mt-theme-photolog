@@ -1,0 +1,77 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="<mt:DefaultLanguage />" xml:lang="<mt:DefaultLanguage />" id="sixapart-standard">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=<mt:PublishCharset />" />
+  <meta http-equiv="Content-Script-Type" content="text/javascript" />
+  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <meta name="generator" content="<mt:ProductName version="1" />" />
+  <link rel="stylesheet" href="<mt:Link template="スタイルシート" />" type="text/css" />
+<mt:if name="main_template">
+  <link rel="alternate" type="application/atom+xml" title="Atom" href="<mt:Link template="feed_recent" />" />
+</mt:if>
+<mt:if name="search_results_template">
+  <link rel="alternate" type="application/atom+xml" title="<mt:BlogName encode_html="1" />: 検索結果" href="<mt:CGIPath /><mt:SearchScript />?<mt:GetVar name="search_type" />=<mt:SearchString encode_url="1" />&amp;Template=feed&amp;IncludeBlogs=<mt:SearchIncludeBlogs />" />
+</mt:if>
+  <link rel="stylesheet" type="text/css" href="<mt:BlogURL />lightbox/css/jquery.lightbox-0.5.css" media="screen" />  
+  <script type="text/javascript" src="<mt:StaticWebPath />jquery/jquery.min.js"></script>  
+  <script type="text/javascript" src="<mt:BlogURL />lightbox/js/jquery.lightbox-0.5.js"></script>  
+  <script type="text/javascript" src="<mt:BlogURL>js/photolog.js"></script>
+  <title>
+<mt:if name="entry_template">
+  <mt:GetVar name="page_title" /> - <mt:BlogName encode_html="1" />
+<mt:else>
+  <mt:if name="main_index">
+    <mt:BlogName encode_html="1" />
+  <mt:else>
+    <mt:GetVar name="page_title" />: <mt:BlogName encode_html="1" />
+  </mt:if>
+</mt:if>
+  </title>
+<mt:if name="main_index">
+  <link rel="EditURI" type="application/rsd+xml" title="RSD" href="<mt:Link template="rsd" />" />
+</mt:if>
+<mt:if name="main_template">
+  <mt:unless name="main_index">
+  <link rel="start" href="<mt:BlogURL />" title="Home" />
+  </mt:unless>
+</mt:if>
+<mt:if name="datebased_archive">
+  <mt:ArchivePrevious><link rel="prev" href="<mt:ArchiveLink />" title="<mt:ArchiveTitle encode_html="1" />" /></mt:archivePrevious>
+  <mt:ArchiveNext><link rel="next" href="<mt:ArchiveLink />" title="<mt:ArchiveTitle encode_html="1" />" /></mt:archiveNext>
+</mt:if>
+<mt:if name="entry_template">
+  <mt:EntryPrevious><link rel="prev" href="<mt:EntryPermalink />" title="<mt:EntryTitle encode_html="1" />" /></mt:entryPrevious>
+  <mt:EntryNext><link rel="next" href="<mt:EntryPermalink />" title="<mt:EntryTitle encode_html="1" />" /></mt:entryNext>
+</mt:if>
+  <mt:if name="feedback_template">
+    <mt:EntryTrackbackData />
+  </mt:if>
+  <mt:GetVar name="html_head" />
+  <script type="text/javascript" src="<mt:Link template="javascript" />"></script>
+<mt:Setvartemplate name="comment_pagination">
+<mt:Var name="comments_per_page" value="50" />
+<mt:if tag="EntryCommentCount" gt="$comments_per_page">
+<script type="text/javascript">
+     MT.entryID = <$mt:EntryID$>;
+     MT.commentsPerPage = <$mt:Var name="comments_per_page"$>;
+     MT.entryCommentCount = <$mt:EntryCommentCount$>;
+     MT.commentIds = [<mt:Comments sort_order="ascend" glue=","><mt:CommentID></mt:Comments>];
+</script>
+</mt:If>
+</mt:setvartemplate>
+<mt:if name="archive_class" like="entry-archive|page-archive">
+  <mt:GetVar name="comment_pagination">
+</mt:if>
+<mt:if name="comment_preview">
+  <mt:GetVar name="comment_pagination">
+</mt:if>
+<mt:if name="main_template">
+  <mt:CCLicenseRDF />
+</mt:if>
+</head>
+<body class="<mt:GetVar name="page_layout" /><mt:if name="class"> <mt:GetVar name="class" /></mt:if>">
+  <div id="header">
+    <h1 id="blog-name"><a href="<mt:BlogURL />" accesskey="1"><mt:BlogName encode_html="1" /></a></h1>
+<mt:if tag="BlogDescription"><p class="blog-description"><mt:BlogDescription encode_html="1" /></p></mt:if>
+  </div>
+  <div id="box" class="clearfix">

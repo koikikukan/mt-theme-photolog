@@ -1,0 +1,115 @@
+<mt:unless name="page_layout" like="column">
+  <mt:setvar name="page_layout" value="layout-three-column" />
+</mt:unless>
+<mt:if name="body_class" eq="mt-comment-confirmation">
+    <mt:setVarBlock name="page_title">投稿されたコメント</mt:setVarBlock>
+    <mt:setVar name="heading" value="確認" />
+    <mt:setVarBlock name="message">
+    <p>コメントを投稿しました。</p>
+    </mt:setVarBlock>
+</mt:if>
+<mt:if name="body_class" eq="mt-comment-pending">
+    <mt:setVarBlock name="page_title">コメント保留中</mt:setVarBlock>
+    <mt:setVar name="heading" value="コメントありがとうございます。" />
+    <mt:setVarBlock name="message">
+    <p>コメントは現在承認されるまで公開を保留されています。</p>
+    </mt:setVarBlock>
+</mt:if>
+<mt:if name="body_class" eq="mt-comment-error">
+    <mt:setVarBlock name="page_title">コメント投稿エラー</mt:setVarBlock>
+    <mt:setVar name="heading" value="$page_title" />
+    <mt:setVarBlock name="message">
+    <p>コメントの投稿に失敗しました:</p>
+    <blockquote>
+        <mt:ErrorMessage />
+    </blockquote>
+    </mt:setVarBlock>
+</mt:if>
+<mt:include module="ヘッダー" class="comment-confirm" />
+
+<mt:unless name="page_layout" eq="layout-three-column-right">
+  <mt:if name="page_layout" like="three|left">
+<div id="links-left-box">
+  <dl id="links-left">
+<mt:include module="サイドバー2" />
+    <mt:if name="page_layout" like="two">
+<mt:include module="サイドバー" />
+    </mt:if>
+  </dl>
+</div>
+  </mt:if>
+</mt:unless>
+
+<mt:if name="page_layout" like="layout-one-column">
+<div id="communication-box">
+  <div id="communication-content">
+    <div class="communication-blog clearfix">
+<mt:else>
+<div id="content">
+  <div class="blog">
+</mt:if>
+      <div id="comments">
+        <div class="comments-content">
+
+<mt:if name="body_class" eq="mt-comment-pending">
+<div class="comments-header">コメントありがとうございます</div>
+<div class="comment">
+   <div class="comment-content">
+      <p>コメントを受け付けました。受け付けたコメントは、ブログの管理者の承認のため保留されています。</p>
+      <p><a href="<mt:EntryLink>">元のエントリーに戻る</a></p>
+   </div>
+</div>
+</mt:if>
+
+<mt:if name="body_class" eq="mt-comment-confirmation">
+<div class="comments-header">コメントありがとうございます</div>
+<div class="comment">
+   <div class="comment-content">
+      <p>コメントを受け付けました。<a href="<mt:EntryLink>">元のエントリーに戻る</a></p>
+   </div>
+</div>
+</mt:if>
+
+<mt:if name="body_class" eq="mt-comment-error">
+<div class="comments-header">コメントの登録エラー</div>
+<div class="comment">
+   <div class="comment-content">
+      <p>コメントの登録が失敗しました:</p>
+      <blockquote><p style="margin:0;"><strong><mt:errorMessage /></strong></p></blockquote>
+   </div>
+</div>
+
+<mt:include module="コメント" />
+</mt:if>
+
+        </div>
+      </div>
+<mt:if name="page_layout" like="layout-one-column">
+    </div>
+</mt:if>
+  </div>
+<mt:if name="page_layout" ne="layout-one-column">
+<p id="footer"<mt:if name="page_layout" like="liquid"> class="clearfix"</mt:if>>Copyright &copy; <mt:Entries lastn="1"><mt:EntryDate format="%Y"></mt:Entries> <mt:blogName encode_html="1" /> All Rights Reserved.</p>
+</mt:if>
+</div>
+
+<mt:if name="page_layout" like="layout-three-column-right|layout-three-column-liquid-right">
+<div id="links-left-box">
+  <dl id="links-left">
+<mt:include module="サイドバー2" />
+  </dl>
+</div>
+</mt:if>
+
+<mt:if name="page_layout" like="three|right">
+<div id="links-right-box">
+  <dl id="links-right">
+  <mt:if name="page_layout" like="two">
+<mt:include module="サイドバー2" />
+  </mt:if>
+<mt:include module="サイドバー" />
+  </dl>
+</div>
+</mt:if>
+
+<mt:include module="フッター" />

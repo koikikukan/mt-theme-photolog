@@ -1,0 +1,23 @@
+<mt:ifArchiveTypeEnabled archive_type="Category">
+<dt class="sidetitle">
+Categories
+</dt>
+
+<dd class="side" id="categories">
+<mt:topLevelCategories>
+  <mt:subCatIsFirst>
+  <ul>
+  </mt:subCatIsFirst>
+    <mt:if tag="CategoryCount">
+    <li><a href="<mt:categoryArchiveLink />" title="<mt:categoryDescription />"><mt:categoryLabel /></a> [<mt:categoryCount />]
+    <mt:else>
+    <li><mt:categoryLabel />
+  </mt:if>
+    <mt:subCatsRecurse />
+    </li>
+    <mt:subCatIsLast>
+  </ul>
+    </mt:subCatIsLast>
+  </mt:topLevelCategories>
+</dd>
+</mt:ifArchiveTypeEnabled>

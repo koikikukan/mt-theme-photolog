@@ -1,0 +1,127 @@
+<mt:unless name="page_layout" like="column">
+  <mt:SetVar name="page_layout" value="layout-one-column" />
+</mt:unless>
+<mt:if name="datebased_archive">
+  <mt:SetVarBlock name="page_title"><mt:ArchiveDate format="%b %Y" language="en" /> archives</mt:SetVarBlock>
+<mt:else>
+  <mt:SetVarBlock name="page_title"><mt:ArchiveTitle /> archives</mt:SetVarBlock>
+</mt:if>
+<mt:if name="page_layout" like="layout-three-column">
+  <mt:ignore>3カラムレイアウトのサムネイル表示枚数と最大幅</mt:ignore>
+  <mt:SetVar name="thumbnail_max" value="4" />
+  <mt:SetVar name="thumbnail_max_size" value="363px" />
+<mt:elseIf name="page_layout" like="layout-two-column">
+  <mt:ignore>2カラムレイアウトのサムネイル表示枚数と最大幅</mt:ignore>
+  <mt:SetVar name="thumbnail_max" value="6" />
+  <mt:SetVar name="thumbnail_max_size" value="553px" />
+<mt:else>
+  <mt:ignore>1カラムレイアウトのサムネイル表示枚数と最大幅</mt:ignore>
+  <mt:SetVar name="thumbnail_max" value="8" />
+  <mt:SetVar name="thumbnail_max_size" value="743px" />
+</mt:if>
+<mt:include module="ヘッダー" class="archive" />
+
+<mt:if name="page_layout" like="layout-three-column-right|layout-three-column-liquid-right">
+<mt:else>
+  <mt:if name="page_layout" like="three|left">
+<div id="links-left-box">
+  <dl id="links-left">
+<mt:include module="サイドバー2" />
+    <mt:if name="page_layout" like="two">
+<mt:include module="サイドバー" />
+    </mt:if>
+  </dl>
+</div>
+  </mt:if>
+</mt:if>
+
+<mt:if name="datebased_archive">
+  <mt:SetVar name="limit" value="0" />
+  <mt:if name="archive_class" like="category">
+    <mt:CategoryLabel setvar="label" />
+  <mt:elseIf name="archive_class" like="author">
+    <mt:AuthorDisplayName setvar="label" />
+  </mt:if>
+  <mt:if name="archive_class" like="yearly">
+    <mt:SetVarTemplate name="archive_title"><mt:ArchiveDate format="%Y" language="en" /></mt:SetVarTemplate>
+  <mt:elseIf name="archive_class" like="monthly">
+    <mt:SetVarTemplate name="archive_title"><mt:ArchiveDate format="%b %Y" language="en" /></mt:SetVarTemplate>
+  <mt:elseIf name="archive_class" like="weekly">
+    <mt:SetVarTemplate name="archive_title"><mt:ArchiveTitle /></mt:SetVarTemplate>
+  <mt:elseIf name="archive_class" like="daily">
+    <mt:SetVarTemplate name="archive_title"><mt:ArchiveDate format="%d,%b %Y" language="en" /></mt:SetVarTemplate>
+  </mt:if>
+<mt:else>
+  <mt:SetVar name="limit" value="auto" />
+  <mt:SetVarTemplate name="archive_title"><mt:ArchiveTitle /></mt:SetVarTemplate>
+</mt:if>
+
+<div id="content">
+  <div class="blog">
+    <h2 class="entry-list-header"><mt:if name="label"><mt:GetVar name="label" /> - </mt:if><mt:GetVar name="archive_title" /></h2>
+    <div id="gallery2" class="photolist clearfix">
+      <ul>
+<mt:SetVar name="counter" value="1" />
+<mt:Entries limit="$limit">
+  <mt:EntryAssets type="image" lastn="1">
+<mt:if name="counter" eq="1">
+        <li class="start"><a href="<mt:EntryPermalink />"><img src="<mt:AssetThumbnailURL width="70" square="1" />" class="asset-img-thumb" alt="<mt:EntryTitle />" title="Go to <mt:EntryTitle />'s page" /></a></li>
+<mt:else>
+        <li<mt:if name="counter" op="%" value="$thumbnail_max" eq="1"> class="start"</mt:if>><a href="<mt:EntryPermalink />"><img src="<mt:AssetThumbnailURL width="70" square="1" />" class="asset-img-thumb" alt="<mt:EntryTitle />" title="Go to <mt:EntryTitle />'s page" /></a></li>
+</mt:if>
+  <mt:SetVar name="counter" op="++" />
+  </mt:EntryAssets>
+</mt:Entries>
+      </ul>
+    </div>
+
+<mt:SetVar name="counter" op="--" />
+<mt:GetVar name="counter" setvar="total" />
+<mt:SetVar name="counter" op="*" value="95" />
+<mt:SetVar name="counter" op="-" value="17" />
+<script type="text/javascript">
+//<![CDATA[
+<mt:if name="total" le="$thumbnail_max">
+$('#gallery2').find('ul').css('width','<mt:GetVar name="counter" />px');
+<mt:else>
+$('#gallery2').find('ul').css('width','<mt:GetVar name="thumbnail_max_size" />');
+</mt:if>
+//]]>
+</script>
+
+    <div class="content-nav">
+<mt:ArchivePrevious>
+      <a href="<mt:ArchiveLink />">&laquo; <mt:GetVar name="archive_title" /></a> |
+</mt:ArchivePrevious>
+      <a href="<mt:Link template="main_index" />">Main</a>
+<mt:ArchiveNext>
+    | <a href="<mt:ArchiveLink />"><mt:GetVar name="archive_title" /> &raquo;</a>
+</mt:ArchiveNext>
+    </div>
+  </div>
+
+<mt:if name="page_layout" ne="layout-one-column">
+<p id="footer"<mt:if name="page_layout" like="liquid"> class="clearfix"</mt:if>>Copyright &copy; <mt:Entries lastn="1"><mt:EntryDate format="%Y"></mt:Entries> <mt:blogName encode_html="1" /> All Rights Reserved.</p>
+</mt:if>
+</div>
+
+<mt:if name="page_layout" like="layout-three-column-right|layout-three-column-liquid-right">
+<div id="links-left-box">
+  <dl id="links-left">
+<mt:Include module="サイドバー2" />
+  </dl>
+</div>
+</mt:if>
+
+<mt:if name="page_layout" like="three|right">
+<div id="links-right-box">
+  <dl id="links-right">
+  <mt:if name="page_layout" like="two">
+<mt:include module="サイドバー2" />
+  </mt:if>
+<mt:include module="サイドバー" />
+  </dl>
+</div>
+</mt:if>
+
+<mt:include module="フッター" />

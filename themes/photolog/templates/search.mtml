@@ -1,0 +1,14 @@
+<dt class="sidetitle">
+Search this site
+</dt>
+ 
+<dd class="side">
+  <form method="get" action="<mt:CGIPath /><mt:SearchScript />">
+    <fieldset>
+      <input type="hidden" name="IncludeBlogs" value="<mt:blogID />" />
+      <input type="hidden" name="limit" value="<mt:searchMaxResults />" />
+      <input id="search" tabindex="8"  accesskey="t" name="search" size="20" value="" />
+      <input id="send" type="submit" tabindex="9" accesskey="s" value="Search" />
+    </fieldset>
+  </form>
+</dd>

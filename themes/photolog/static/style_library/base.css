@@ -1,0 +1,917 @@
+/* すべて */
+* {
+    margin: 0;
+    padding: 0;
+    font-family: Verdana, Arial, sans-serif;
+}
+
+body {
+    font-size: 120%;
+}
+html>body {
+    font-size: 14pt;
+}
+
+/* 見出し */
+h1, h2, h3, h4, h5, h6 {
+    font-weight: normal;
+}
+
+/* リンク */
+a,
+a:link,
+a:visited {
+    text-decoration: none;
+}
+a:hover {
+    text-decoration: underline;
+}
+a:active {}
+
+/* リンクつき画像 */
+a img {
+    border: none;
+}
+
+/* フォーム */
+form {
+    margin: 0px;
+}
+
+#search-options,
+input,
+textarea {
+    padding: 1px;
+}
+
+#search {
+    margin-bottom: 3px;
+    padding: 3px;
+    width: 145px;
+    height: 20px;
+}
+
+.layout-one-column #search {
+    height:20px;
+    margin-bottom:3px;
+    padding:3px;
+    width:168px;
+}
+
+html > body #search {
+    height: 20px;
+}
+
+#send {
+    height: 30px;
+    padding: 3px;
+    vertical-align: middle;
+    width: 63px;
+    font-family: Verdana;
+}
+
+*:first-child+html .layout-one-column #send {
+    vertical-align: top;
+}
+
+/* ヘッダ */
+.layout-three-column #header,
+.layout-three-column-right #header {
+    width: 954px;
+}
+
+.layout-two-column-left #header,
+.layout-two-column-right #header {
+    width: 954px;
+}
+
+.layout-one-column #header {
+    width: 954px;
+}
+
+#header {
+margin: 15px auto 5px;
+    text-align: left;
+}
+
+#header a,
+#header a:link,
+#header a:visited {
+    background: transparent;
+    font-size: 20px;
+    text-decoration: none;
+}
+#header a:hover {}
+#header a:active {}
+
+/* タイトルバナー下の説明 */
+.blog-description {
+    background: transparent;
+    font-size: 12px;
+}
+
+/* ブログ記事日付 */
+.date {
+    margin: 8px 2px;
+}
+
+/* ブログ記事日付・各タイトル */
+.date,
+.trackbacks-header,
+.comments-header,
+.comments-open-header,
+.search-header {
+    font-size: 83.3%;
+    line-height: 2.0;
+}
+
+.entry-list-header,
+.search-results-header {
+    font-size: 100%;
+    margin-bottom: 0;
+    padding-top: 25px;
+    text-align: center;
+}
+
+/* アーカイブインデックス */
+.archive-index .entry {
+    margin-left: 30px;
+}
+
+/* ブログ記事タイトル */
+.main-entry-header {
+    margin-bottom: 10px;
+    padding-top: 30px;
+    font-size: 100%;
+}
+
+/* ブログ記事 */
+.main-entry {
+    text-align: center;
+    line-height:1.5;
+    word-break: break-all;
+}
+
+/* ウェブページタイトル */
+.page-header {
+    margin: 25px 0 0 25px;
+}
+.layout-one-column .page-header {
+    margin-left: 35px;
+}
+
+/* ウェブページ */
+.page {
+    line-height: 1.5;
+    margin-bottom: 30px;
+    width: auto;
+}
+
+/* 段落 */
+.entry p {
+    margin: 15px 0;
+}
+
+/* 本文/追記 */
+.entry-text,
+.entry-more,
+.page-text,
+.page-more {
+    margin: 0 25px 35px;
+    text-align:left;
+}
+
+.layout-one-column .entry-text,
+.layout-one-column .entry-more,
+.layout-one-column .page-text,
+.layout-one-column .page-more {
+    margin: 0 35px 35px;
+}
+
+.entry-text p,
+.entry-more p,
+.page-text p,
+.page-more p{
+    margin: 20px 0;
+}
+
+/* 順序なしリスト */
+.entry ul,
+.entry ol {
+    padding-left: 16px;
+}
+.entry ul li {
+    list-style-type: circle;
+}
+
+/* 定義リスト */
+.entry dl {}
+.entry dt {}
+.entry dd {
+    padding-left: 8px;
+}
+
+/* テキストエリア */
+.entry textarea {
+    width: 97%;
+}
+
+/* 引用 */
+blockquote {
+    width: auto;
+    margin: 15px 20px 0;
+    padding: 10px;
+    font-size: 83.3%;
+    line-height: 1.5;
+}
+.quotetitle { /* 引用文タイトル */
+    font-size: 83.3%;
+    padding: 3px;
+}
+
+pre {
+    margin: 15px 20px 0px;
+    padding: 10px;
+    font-size: 83.3%;
+    line-height: 1.5;
+    width: 100%;
+    overflow: scroll;
+}
+html>body pre {
+    width: 87%;
+}
+
+/* 投稿者 */
+.entry-footer {
+    margin: 0 auto 25px;
+    font-size: 70%;
+    text-align: right;
+}
+
+/* タグ */
+.entry-tags-list {
+    padding-left: 5px;
+}
+
+/* Typekeyコメンタ－画像 */
+.commenter-profile img {
+    vertical-align: middle;
+    border-width: 0;
+}
+
+/* メインページ画像 */
+#gallery1 a img,
+#gallery1 a:link img,
+#gallery1 a:visited img {
+    padding: 5px;
+}
+#gallery1 {
+    visibility: hidden;
+}
+
+/* サムネイルリスト */
+#gallery2 a,
+#gallery2 a:link,
+#gallery2 a:visited {
+    padding: 3px;
+    height: 70px;
+    margin: 0;
+    display: block;
+}
+#gallery2 li {
+    visibility: hidden;
+}
+
+.photolist {
+    padding: 25px 0 20px;
+    text-align:center;
+    margin-left: 2px;
+/*    margin-bottom: 20px; *//* for IE7 */
+}
+
+*:first-child+html .photolist{
+    padding: 20px 0 30px;
+}
+
+.photolist ul {
+    list-style: none;
+    margin: 0 auto;
+}
+
+*:first-child+html .photolist ul{
+    height:100%; /* for IE7 */
+}
+
+.photolist li {
+    margin-left: 17px;
+    margin-bottom: 17px;
+    float:left;
+}
+
+.photolist li.start {
+    margin-left: 0;
+    float:left;
+}
+
+/* アーカイブページ本文 */
+.archive-list {
+    margin: 10px 0;
+}
+
+/* アーカイブテンプレートの前後リンク */
+.content-nav {
+    margin-top: -10px;
+    padding: 0 0 20px;
+    text-align: center;
+    font-size: 83.3%;
+}
+
+/* カレンダー */
+.calendarhead {
+    padding-bottom: 5px;
+    text-align: center;
+    font-size: 83%;
+    letter-spacing: 0.2em;
+}
+#calendar table {
+    text-align: center;
+    margin-top: 8px;
+    padding: 10px;
+    border-collapse: collapse;
+}
+#calendar th {
+    padding-bottom: 3px;
+    font-size: 70%;
+    width: 35px;
+}
+#calendar td {
+    padding: 2px 0;
+    font-size: 100%;
+    line-height: 120%;
+}
+span.day {
+    text-align: center;
+    font-size: 83.3%;
+}
+td.today {
+    display: block;
+}
+
+#links-left-box dl,
+#links-center-box dl,
+#links-right-box dl {
+    margin: 0;
+    padding: 0;
+}
+#links-left-box dd,
+#links-center-box dd,
+#links-right-box dd {
+    font-size: 75%;
+}
+
+.side dt,
+.side dd {
+    margin: 0;
+    padding: 0;
+}
+
+/* サイドメニュータイトル */
+.sidetitle {
+    margin-top: 3px;
+    text-align: left;
+    font-size: 75%;
+    line-height: 2.0;
+}
+
+/* サイドメニュー */
+.side {
+    margin: 3px 0 20px;
+    font-size: 75%;
+    line-height: 1.5;
+}
+.side ul,
+.side ol {
+    padding-left: 16px;
+}
+.side ul li {
+    list-style-type: circle;
+}
+.side ul li ul {
+    padding-left: 0px;
+}
+.side li li {
+    list-style-type: none;
+}
+
+/* サイドメニュー(サブカテゴリー用) */
+.side #categories ul {
+    padding-left: 16px;
+}
+.side #categories ul ul {
+    padding-left: 10px;
+}
+.side #categories li {
+    list-style-type: circle;
+}
+
+/* サイドメニュー(タグクラウド用) */
+ul#tags {
+    margin-top: 5px;
+    padding-left: 0;
+    list-style: none;
+}
+ul#tags .module-list-item {
+    display: inline;
+}
+ul#tags li.taglevel1 {
+    font-size: 125%;
+    font-weight: bold;
+}
+ul#tags li.taglevel2 {
+    font-size: 125%;
+}
+ul#tags li.taglevel3 {
+    font-size: 116.6%;
+}
+ul#tags li.taglevel4 {
+    font-size: 108.3%;
+}
+ul#tags li.taglevel5 {
+    font-size: 100%;
+}
+ul#tags li.taglevel6 {
+    font-size: 91.6%;
+}
+
+/* 検索 */
+fieldset {
+    border: none;
+}
+
+/* カウンター */
+.counter {
+    margin: 8px 0 25px;
+    padding: 2px;
+    background: none;
+}
+
+/* RSSフィード */
+.syndicate {
+    margin-bottom: 5px;
+    text-align: left;
+    font-size: 75%;
+    line-height: 1.5;
+}
+.syndicate img {
+    border: none;
+    vertical-align: middle;
+}
+
+/* クレジットバナー */
+.powered {
+    margin-top: 20px;
+    text-align: left;
+    font-size: 75%;
+    line-height: 1.5;
+}
+.powered img {
+    margin-top: 3px;
+}
+.powered ul,
+.powered li {
+    list-style: none;
+}
+.module-powered {
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+.module-powered img {
+    padding: 10px;
+}    
+
+/* コメント・トラックバック・フッター */
+#communication-box,
+#footer-box {
+    margin-top: 15px;
+    margin-right: auto;
+    margin-left: auto;
+    text-align: left;
+    width: 954px;
+}
+
+#communication-content,
+#footer-content {
+    padding-top: 10px;
+    -moz-border-radius: 5px;
+/*    -webkit-border-radius: 5px;*/
+    -o-border-radius: 5px;
+    border-radius: 5px;
+}
+
+.communication-blog,
+#footer-content .blog {
+    padding: 5px 15px 15px;
+}
+
+*:first-child+html .communication-blog,
+*:first-child+html #footer-content .blog {
+    padding: 5px 15px 30px;
+    min-height: 1%; /* IE7でトラックバックのボックス右がはみだすバグ対処 */
+}
+
+.comment-preview #communication-box,
+.comment-confirm #communication-box {
+    margin-top: 0;
+}
+
+.layout-three-column.comment-preview .comments-header,
+.layout-three-column.comment-confirm .comments-header,
+.layout-three-column-right.comment-preview .comments-header,
+.layout-three-column-right.comment-confirm .comments-header,
+.layout-two-column-left.comment-preview .comments-header,
+.layout-two-column-left.comment-confirm .comments-header,
+.layout-two-column-right.comment-preview .comments-header,
+.layout-two-column-right.comment-confirm .comments-header {
+    margin-top: 15px;
+}
+
+/* コメント・トラックバック */
+#trackbacks,
+#comments {
+    margin: 10px 2px;
+}
+.layout-two-column-left #trackbacks,
+.layout-two-column-left #comments,
+.layout-two-column-right #trackbacks,
+.layout-two-column-right #comments {
+    margin: 30px 25px 25px;
+    padding: 15px 10px 5px;
+    -moz-border-radius: 5px;
+/*    -webkit-border-radius: 5px;*/
+    -o-border-radius: 5px;
+    border-radius: 5px;
+}
+
+.layout-one-column #trackbacks,
+.layout-one-column #comments {
+    margin: 15px;
+    padding: 15px 10px 5px;
+    -moz-border-radius: 5px;
+/*    -webkit-border-radius: 5px;*/
+    -o-border-radius: 5px;
+    border-radius: 5px;
+}
+
+.trackbacks-header {
+    margin: 5px 20px 15px;
+}
+.trackbacks-content {
+    margin-bottom: 15px;
+}
+.comments-header {
+    margin:5px 20px 20px;
+/*    margin:5px 20px;*/
+}
+.comments-open-header {
+    margin:5px 20px 25px;
+}
+.layout-one-column .trackbacks-header,
+.layout-one-column .comments-header,
+.layout-one-column .comments-open-header {
+  margin: 5px 15px 5px;
+  font-size: 83.3%;
+  line-height: 2;
+}
+
+#trackbacks-info,
+.trackback-content,
+.comment-content,
+.comments-open-content {
+    margin: 0 20px 20px;
+    padding: 0;
+    font-size: 83.3%;
+    line-height: 1.5;
+    word-break: break-all;
+}
+
+.layout-one-column #trackbacks-info,
+.layout-one-column .trackback-content,
+.layout-one-column .comment-content,
+.layout-one-column .comments-open-content {
+    margin: 0 0 20px;
+    padding: 10px 15px 0;
+}
+
+.trackback-content p,
+.comment-content p {
+    margin-top: 10px;
+    margin-bottom: 5px;
+}
+
+.trackback-footer,
+.comment-footer {
+    margin:0 20px;
+    padding-top:3px;
+    font-size:66.6%;
+    text-align:right;
+}
+.layout-one-column .trackback-footer,
+.layout-one-column .comment-footer {
+    margin:0 15px;
+}
+
+#comments-open-data p {
+    margin-bottom: 10px;
+}
+#comment-post {
+    font-weight: bold;
+}
+#comment-author, #comment-email, #comment-url {
+    width: 220px;
+    height: 20px;
+}
+html > body #comment-author,
+html > body #comment-email,
+html > body #comment-url {
+    height: 25px;
+}
+#comment-text {
+    height: 150px;
+    padding: 5px;
+    width: 460px;
+    font-size: 100%; /* for IE */
+}
+
+.layout-one-column #comment-text {
+    height: 150px;
+    padding: 5px;
+    width: 500px;
+    font-size: 100%; /* for IE */
+}
+#comment-bake-cookie {
+    margin-left: 2px;
+    vertical-align: middle;
+}
+#comments-open-footer {
+    margin-top: 15px;
+    text-align: center;
+}
+.comments-open label {
+    display: block;
+}
+
+#comments-open {
+    min-width: 1%; /* IE7でトラックバックのボックス右がはみだすバグ対処 */
+}
+
+#comment-reply-label {
+    display: inline;
+}
+
+#comment-form-reply {
+    margin-bottom: 8px;
+}
+
+#comment-preview, #comment-submit {
+    font: inherit;
+    height: 37px;
+}
+
+#comment-preview {
+    width: 100px;
+}
+
+#comment-submit {
+    width: 70px;
+}
+
+#top-comment-nav, #comment-nav {
+  list-style-image: none;
+  list-style-position: outside;
+  list-style-type: none;
+  margin: 0 0 1em;
+  padding: 0;
+  font-size: 83.3%;
+  text-align: center;
+  width: 100%;
+}
+
+#top-comment-nav li, #comment-nav li {
+    display:inline;
+    padding:0;
+}
+
+#top-prev-comments, #prev-comments {
+    margin:0 5px 0 0;
+    text-align:left;
+}
+
+#top-num-comments, #num-comments {
+    text-align:center;
+}
+
+#top-next-comments, #next-comments {
+    margin:0 0 0 5px;
+    text-align:right;
+}
+
+#comments-content {
+    margin-bottom: 15px;
+}
+
+.status-indicator {
+    display: inline;
+    height: 20px;
+    width: 20px;
+    background: url(../../../../images/indicator-login.gif) no-repeat 0 0;
+    padding: 2px 7px;
+}
+
+/* 検索結果画面 */
+#search-form {
+    font-size: 83.3%;
+}
+.search-header {
+    margin: 15px 0;
+}
+.search-results-header {
+    font-size: 120%;*/
+}
+
+/* カラム切り替え */
+body.layout-three-column,
+body.layout-three-column-right,
+body.layout-two-column-left,
+body.layout-two-column-right,
+body.layout-one-column {
+    text-align: center;
+}
+.layout-three-column #container,
+.layout-three-column-right #container,
+.layout-two-column-left #container,
+.layout-two-column-right #container {
+    margin-bottom: 10px;
+}
+.layout-one-column #container {
+    margin-bottom: 0;
+}
+
+#box {
+    margin-right: auto;
+    margin-left: auto;
+    text-align: left;
+    width: 954px;
+}
+
+.blog {
+    -moz-border-radius: 5px;
+/*    -webkit-border-radius: 5px;*/
+    -o-border-radius: 5px;
+    border-radius: 5px;
+}
+.archive-index .blog {
+    padding:15px 30px 35px;
+}
+.communication-blog {
+    -moz-border-radius: 5px;
+/*    -webkit-border-radius: 5px;*/
+    -o-border-radius: 5px;
+    border-radius: 5px;
+}
+
+.layout-one-column #links-left-box,
+.layout-one-column #links-center-box,
+.layout-one-column #links-right-box {
+    float :left;
+    margin: 15px 15px;
+    width: 275px;
+    -moz-border-radius: 5px;
+/*    -webkit-border-radius: 5px;*/
+    -o-border-radius: 5px;
+    border-radius: 5px;
+}
+.layout-one-column #links-left,
+.layout-one-column #links-center,
+.layout-one-column #links-right {
+    padding: 10px 15px 0;
+}
+
+#links-left-box,
+#links-center-box,
+#links-right-box {
+    padding-bottom: 10px;
+}
+
+#links-left-box {
+    -moz-border-radius: 5px;
+/*    -webkit-border-radius: 5px;*/
+    -o-border-radius: 5px;
+    border-radius: 5px;
+}
+
+#links-right-box {
+    -moz-border-radius: 5px;
+/*    -webkit-border-radius: 5px;*/
+    -o-border-radius: 5px;
+    border-radius: 5px;
+}
+
+.layout-three-column #links-left-box {
+    margin-right: 15px;
+}
+.layout-three-column #links-right-box {
+    margin-left: 15px;
+}
+.layout-three-column-right #links-left-box,
+.layout-three-column-right #links-right-box {
+    margin-left: 15px;
+}
+.layout-two-column-right #links-right-box {
+    margin-left: 15px;
+}
+.layout-two-column-left #links-left-box {
+    margin-right: 15px;
+}
+
+.layout-three-column-right #content,
+.layout-three-column #content {
+    width: 520px;
+}
+.layout-two-column-left #content,
+.layout-two-column-right #content {
+    width: 735px;
+}
+.layout-one-column #content {
+    width: 954px;
+}
+
+.layout-three-column #content,
+.layout-three-column-right #content,
+.layout-two-column-right #content,
+.layout-two-column-left #content {
+    float: left;
+}
+
+.layout-three-column #links-left-box,
+.layout-three-column #links-right-box,
+.layout-three-column-right #links-left-box,
+.layout-three-column-right #links-right-box,
+.layout-two-column-right #links-right-box,
+.layout-two-column-left #links-left-box {
+    float: left;
+    width: 200px;
+    margin-bottom:15px;
+}
+.layout-three-column #links-left,
+.layout-three-column #links-right,
+.layout-three-column-right #links-left,
+.layout-three-column-right #links-right,
+.layout-two-column-right #links-right,
+.layout-two-column-left #links-left {
+    padding: 15px 15px 0;
+}
+
+/* フッタ */
+.layout-one-column #footer,
+.layout-three-column #footer,
+.layout-three-column-right #footer,
+.layout-two-column-left #footer,
+.layout-two-column-right #footer {
+    margin-right: auto;
+    margin-left: auto;
+    height: 42px;
+    font-size: 60%;
+    text-align: center;
+    line-height: 3.5;
+}
+*:first-child+html .layout-one-column #footer {
+    margin-bottom: 15px;
+}
+.layout-three-column #footer,
+.layout-three-column-right #footer,
+.layout-two-column-left #footer,
+.layout-two-column-right #footer,
+.layout-one-column #footer {
+    width: 491px;
+}
+
+input,textarea {
+    font-family: "Osaka", "ヒラギノ角ゴ Pro W3", "ＭＳ Ｐゴシック", arial, sans-serif;
+}
+
+.clearfix:after {
+    content: "";
+    display: block;
+    height: 0;
+    clear: both;
+    visibility: hidden;
+}
+
+.clearfix {
+    display: inline-table;
+}
+
+/* Hides from IE-mac \*/
+* html .clearfix {height: 1%;}
+.clearfix {display: block;}
+/* End hide from IE-mac */

@@ -1,0 +1,12 @@
+<div class="comment"<mt:ifArchiveTypeEnabled archive_type="Individual"> id="c<mt:commentID />"</mt:ifArchiveTypeEnabled>>
+
+   <div class="comment-content">
+   <mt:ifCommentParent>
+   <p><a href="<mt:commentParent>#comment-<mt:commentID /></mt:commentParent>"><mt:commentParent>No.<mt:commentID />の<mt:commentAuthor /></mt:commentParent></a>さんのコメントへの返信</p>
+   </mt:ifCommentParent>
+   <mt:commentBody /></div>
+
+   <p class="comment-footer">
+      Posted by <mt:commentAuthorLink default_name="Anonymous" show_email="0" /> <mt:if tag="CommentAuthorIdentity"><mt:commentAuthorIdentity /></mt:if> at <mt:commentDate /><mt:ifCommentsAccepted> | <mt:commentReplyToLink /></mt:ifCommentsAccepted>
+   </p>
+</div>

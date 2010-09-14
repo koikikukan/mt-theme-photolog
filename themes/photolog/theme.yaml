@@ -1,0 +1,176 @@
+id: photolog
+label: Photolog
+name: Photolog
+version: 0.57
+author_link: http://www.koikikukan.com/
+author_name: Yujiro Araki
+class: blog
+description: シンプルなフォトログ用テーマです。画像のアップロードは、ブログ記事投稿画面右下にある「ブログ記事アイテム」から追加を行うだけです。スタイル機能を使って、デザイン変更やカラムレイアウトの切り替えが行えます。
+thumbnail_file: thumb.png
+thumbnail_file_medium: thumb-medium.png
+thumbnail_file_small: thumb-small.png
+elements: 
+  blog_static_files: 
+    component: ~
+    data: 
+      - js
+      - lightbox
+      - images
+    importer: blog_static_files
+  template_set: 
+    component: ~
+    importer: template_set
+    data: 
+      base_path: templates
+      label: exported_template set
+      base_css: style_library/base.css
+      stylecatcher_libraries:
+        photolog:
+          url: '{{support}}theme_static/photolog/style_library/index.html'
+          label: Photolog Styles
+          description_label: A collection of styles compatible with photolog themes.
+          order: 1
+      templates: 
+        archive: 
+          entry_listing: 
+            label: ブログ記事リスト
+            mappings: 
+              category: 
+                archive_type: Category
+                file_template: "%-c/%i"
+                preferred: 1
+              monthly: 
+                archive_type: Monthly
+                file_template: "%y/%m/%i"
+                preferred: 1
+        index: 
+          archive_index: 
+            label: アーカイブインデックス
+            outfile: archives.html
+            rebuild_me: 1
+          feed_recent: 
+            label: Atom
+            outfile: atom.xml
+            rebuild_me: 1
+          javascript: 
+            label: JavaScript
+            outfile: mt.js
+            rebuild_me: 1
+          main_index: 
+            label: メインページ
+            outfile: index.html
+            rebuild_me: 1
+          rsd: 
+            label: RSD
+            outfile: rsd.xml
+            rebuild_me: 1
+          styles: 
+            label: スタイルシート
+            outfile: styles.css
+            rebuild_me: 1
+        individual: 
+          entry: 
+            label: ブログ記事
+            mappings: 
+              individual: 
+                archive_type: Individual
+                file_template: "%y/%m/%-f"
+                preferred: 1
+        page: 
+          page: 
+            label: ウェブページ
+            mappings: 
+              page: 
+                archive_type: Page
+                preferred: 1
+        module: 
+          categories: 
+            label: カテゴリ
+          comment_detail: 
+            label: コメント詳細
+          comment_form: 
+            label: コメント入力フォーム
+          comments: 
+            label: コメント
+          entry_detail: 
+            label: ブログ記事の詳細
+          footer: 
+            label: フッター
+          header: 
+            label: ヘッダー
+          page_detail: 
+            label: ウェブページの詳細
+          sidebar: 
+            label: サイドバー
+          sidebar2: 
+            label: サイドバー2
+          sidebar3: 
+            label: サイドバー3
+          tags: 
+            label: タグ
+          trackbacks: 
+            label: トラックバック
+        system: 
+          comment_listing: 
+            label: コメント一覧
+          comment_preview: 
+            label: コメントプレビュー
+          comment_response: 
+            label: コメント完了
+          dynamic_error: 
+            label: ダイナミックパブリッシングエラー
+          popup_image: 
+            label: ポップアップ画像
+          search_results: 
+            label: 検索結果
+        widget: 
+          calendar: 
+            label: カレンダー
+          category_archive_list: 
+            label: カテゴリアーカイブ
+          creative_commons: 
+            label: クリエイティブ・コモンズ
+          current_category_monthly_archive_list: 
+            label: カテゴリ月別アーカイブ
+          links: 
+            label: リンク
+          monthly_archive_list: 
+            label: 月別アーカイブ
+          pages_list:
+            label: ページ一覧
+          powered_by: 
+            label: Powered By
+          recent_comments: 
+            label: 最近のコメント
+          recent_entries: 
+            label: 最近のブログ記事
+          recent_trackbacks: 
+            label: 最近のトラックバック
+          search: 
+            label: 検索
+          syndication: 
+            label: 購読
+          tag_cloud: 
+            label: タグクラウド
+        widgetset: 
+          3column_layout_sidebar_primary: 
+            label: 3カラムのサイドバー(メイン)
+            order: 1000
+            widgets: 
+              - 検索
+              - タグクラウド
+              - 購読
+              - Powered By
+          3column_layout_sidebar_secondary: 
+            label: 3カラムのサイドバー(サブ)
+            order: 1000
+            widgets: 
+              - ページ一覧
+              - 最近のブログ記事
+          3column_layout_sidebar_thirdry: 
+            label: 3カラムのサイドバー(中央)
+            order: 1000
+            widgets: 
+              - 月別アーカイブ
+              - カテゴリアーカイブ
+              - カテゴリ月別アーカイブ

@@ -1,0 +1,33 @@
+<div class="main-entry" id="entry-<mt:EntryID />">
+  <h2 class="main-entry-header"><mt:EntryTitle /></h2>
+  <div class="entry-content clearfix">
+  <mt:EntryAssets type="image" lastn="1">
+    <div id="gallery1">
+  <mt:AssetProperty property="image_width" setvar="width" />
+  <mt:AssetProperty property="image_height" setvar="height" />
+  <mt:if name="width" gt="$photo_size">
+      <a class="lightbox" href="<mt:AssetURL />"><img src="<mt:AssetThumbnailURL width="$photo_size" />" class="asset-img-thumb" alt="<mt:EntryTitle encode_html="1" />" title="View <mt:EntryTitle encode_html="1" />'s slideshow" /></a>
+    <mt:GetVar name="photo_size" setvar="footer_width" />
+  <mt:elseIf name="height" gt="$photo_size">
+      <a class="lightbox" href="<mt:AssetURL />"><img src="<mt:AssetThumbnailURL height="$photo_size" />" class="asset-img-thumb" alt="<mt:EntryTitle encode_html="1" />" title="View <mt:EntryTitle encode_html="1" />'s slideshow" /></a>
+    <mt:GetVar name="height" op="/" value="$photo_size" setvar="tmp" />
+    <mt:GetVar name="width" op="/" value="$tmp" setvar="footer_width" />
+  <mt:else>
+      <img src="<mt:AssetThumbnailURL />" class="asset-img-thumb" alt="<mt:EntryTitle encode_html="1" />" />
+    <mt:GetVar name="width" setvar="footer_width" />
+  </mt:if>
+  <mt:SetVar name="footer_width" op="+" value="14" />
+      <div class="entry-footer" style="width:<mt:GetVar name="footer_width" />px"><mt:EntryDate language="en" format="%x" />
+  <mt:include module="タグ" />
+  <mt:include module="カテゴリ" />
+      </div>
+    </div>
+  </mt:EntryAssets>
+  <mt:if tag="EntryBody">
+    <div class="entry-text"><mt:EntryBody /></div>
+  </mt:if>
+  <mt:if tag="EntryMore">
+    <div class="entry-more"><mt:EntryMore /></div>
+  </mt:if>
+  </div>
+</div>

@@ -1,0 +1,31 @@
+<mt:ifPingsActive>
+<div id="trackbacks">
+
+   <mt:ifPingsAccepted>
+   <h3 class="trackbacks-header">Trackback URL</h3>
+
+   <div id="trackbacks-info">
+      <p><mt:entryTrackbackLink /></p>
+   </div>
+   </mt:ifPingsAccepted>
+
+   <mt:pings>
+
+   <mt:pingsHeader><h3 class="trackbacks-header">Trackbacks</h3></mt:pingsHeader>
+   <div class="trackbacks-content">
+
+      <div class="trackback" id="p<mt:pingID />">
+         <div class="trackback-content">
+            <p>
+               &raquo; <a href="<mt:pingURL />"><mt:pingTitle /></a> from <mt:pingBlogName /><br />
+               <mt:pingExcerpt /> <a href="<mt:pingURL />">Read more...</a>
+            </p>
+         </div>
+         <p class="trackback-footer">
+            Tracked on <mt:pingDate />
+         </p>
+      </div>
+   </div>
+   </mt:pings>
+</div>
+</mt:ifPingsActive>

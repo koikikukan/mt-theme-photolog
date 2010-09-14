@@ -1,0 +1,187 @@
+<mt:unless name="page_layout" like="column">
+  <mt:setvar name="page_layout" value="layout-one-column" />
+</mt:unless>
+<mt:setVarBlock name="page_title">検索結果</mt:setVarBlock>
+<mt:if name="page_layout" like="layout-three-column">
+  <mt:ignore>3カラムレイアウトのサムネイル表示枚数と最大幅</mt:ignore>
+  <mt:SetVar name="thumbnail_max" value="5" />
+  <mt:SetVar name="thumbnail_max_size" value="458px" />
+<mt:elseIf name="page_layout" like="layout-two-column">
+  <mt:ignore>2カラムレイアウトのサムネイル表示枚数と最大幅</mt:ignore>
+  <mt:SetVar name="thumbnail_max" value="8" />
+  <mt:SetVar name="thumbnail_max_size" value="743px" />
+<mt:else>
+  <mt:ignore>1カラムレイアウトのサムネイル表示枚数と最大幅</mt:ignore>
+  <mt:SetVar name="thumbnail_max" value="8" />
+  <mt:SetVar name="thumbnail_max_size" value="743px" />
+</mt:if>
+<mt:ifStraightSearch>
+    <mt:setVar name="search_type" value="search" />
+<mt:else>
+    <mt:setVar name="search_type" value="tag" />
+</mt:ifStraightSearch>
+<mt:setVarBlock name="html_head">
+<script type="text/javascript">
+/* <![CDATA[ */
+var user = <mt:userSessionState />;
+<mt:ifMoreResults>
+function getResults(page) {
+    page = parseInt(page);
+    if (timer) window.clearTimeout(timer);
+    var xh = mtGetXmlHttp();
+    if (!xh) return false;
+    var res = results[page];
+    if (!res) return;
+    var url = res['next_url'];
+    if (!url) return;
+
+    xh.open('GET', url + '&format=js', true);
+    xh.onreadystatechange = function() {
+        if ( xh.readyState == 4 ) {
+            if ( xh.status && ( xh.status != 200 ) ) {
+                // error - ignore
+            } else {
+                try {
+                    var page_results = eval("(" + xh.responseText + ")");
+                    if ( page_results['error'] == null )
+                        results[page + 1] = page_results['result'];
+                } catch (e) {
+                }
+            }
+        }
+    };
+    xh.send(null);
+}
+
+function swapContent(direction) {
+    if ( direction == undefined ) direction = 1;
+    var page_span = document.getElementById('current-page');
+    if (!page_span) return true;
+    var next_page = direction + parseInt(page_span.innerHTML);
+    var res = results[next_page];
+    if (!res) return true;
+    var content = res['content'];
+    if (!content) return true;
+    var div = document.getElementById('search-results');
+    if (!div) return true;
+    div.innerHTML = content;
+    timer = window.setTimeout("getResults(" + next_page + ")", 1*1000);
+    window.scroll(0, 0);
+    return false;
+}
+<mt:else><mt:ifPreviousResults>
+function swapContent(direction) {
+return true;
+}</mt:IfPreviousResults>
+</mt:IfMoreResults>
+/* ]]> */
+</script>
+</mt:setVarBlock>
+<mt:include module="ヘッダー" class="archive" />
+
+<mt:if name="page_layout" like="layout-three-column-right|layout-three-column-liquid-right">
+<mt:else>
+  <mt:if name="page_layout" like="three|left">
+<div id="links-left-box">
+  <dl id="links-left">
+<mt:include module="サイドバー2" />
+    <mt:if name="page_layout" like="two">
+<mt:include module="サイドバー" />
+    </mt:if>
+  </dl>
+</div>
+  </mt:if>
+</mt:if>
+
+<div id="content">
+<div class="blog">
+
+<h2 class="search-results-header">
+<mt:ifStraightSearch>「<mt:SearchString />」</mt:ifStraightSearch>
+<mt:ifTagSearch>タグ「<mt:SearchString />」</mt:ifTagSearch>
+の検索結果
+</h2>
+
+<div id="gallery2" class="photolist clearfix">
+<ul>
+<mt:SetVar name="counter" value="1" />
+<mt:SearchResults>
+  <mt:EntryAssets type="image" lastn="1">
+<mt:if name="counter" eq="1">
+<li class="start"><a href="<mt:EntryPermalink />"><img src="<mt:AssetThumbnailURL width="70" square="1" />" class="asset-img-thumb" alt="<mt:EntryTitle />" title="Go to <mt:EntryTitle />'s page" /></a></li>
+<mt:else>
+<li<mt:if name="counter" op="%" value="$thumbnail_max" eq="1"> class="start"</mt:if>><a href="<mt:EntryPermalink />"><img src="<mt:AssetThumbnailURL width="70" square="1" />" class="asset-img-thumb" alt="<mt:EntryTitle />" title="Go to <mt:EntryTitle />'s page" /></a></li>
+</mt:if>
+  <mt:SetVar name="counter" op="++" />
+  </mt:EntryAssets>
+</mt:SearchResults>
+</ul>
+</div>
+
+<mt:SetVar name="counter" op="--" />
+<mt:GetVar name="counter" setvar="total" />
+<mt:SetVar name="counter" op="*" value="95" />
+<mt:SetVar name="counter" op="-" value="17" />
+<script type="text/javascript">
+<mt:if name="total" le="8">
+$('#gallery2').find('ul').css('width','<mt:GetVar name="counter" />px');
+<mt:else>
+$('#gallery2').find('ul').css('width','743px');
+</mt:if>
+</script>
+
+<mt:noSearchResults>
+<h2 class="date">
+    <mt:ifStraightSearch>
+    「<mt:searchString />」が含まれるブログ記事
+    </mt:ifStraightSearch>
+    <mt:ifTagSearch>
+    タグ「<mt:searchString />」が付いているブログ記事
+    </mt:ifTagSearch>
+</h2>
+<div class="entry">
+<p>「<mt:searchString />」を含むコンテンツが見つかりませんでした。</p>
+</div>
+</mt:noSearchResults>
+
+<mt:IfMoreResults>
+<script type="text/javascript">
+<!--
+var div = document.getElementById('search-results');
+var results = {
+    '<mt:currentPage />': {
+        'content': div.innerHTML,
+        'next_url': '<mt:nextLink />'
+    }
+};
+var timer = window.setTimeout("getResults(" + <mt:currentPage /> + ")", 1*1000);
+//-->
+</script>
+</mt:IfMoreResults>
+
+</div>
+<mt:if name="page_layout" ne="layout-one-column">
+<p id="footer"<mt:if name="page_layout" like="liquid"> class="clearfix"</mt:if>>Copyright &copy; <mt:Entries lastn="1"><mt:EntryDate format="%Y"></mt:Entries> <mt:BlogName encode_html="1" /> All Rights Reserved.</p>
+</mt:if>
+</div>
+
+<mt:if name="page_layout" like="layout-three-column-right|layout-three-column-liquid-right">
+<div id="links-left-box">
+  <dl id="links-left">
+<mt:include module="サイドバー2" />
+  </dl>
+</div>
+</mt:if>
+
+<mt:if name="page_layout" like="three|right">
+<div id="links-right-box">
+  <dl id="links-right">
+  <mt:if name="page_layout" like="two">
+<mt:include module="サイドバー2" />
+  </mt:if>
+<mt:include module="サイドバー" />
+  </dl>
+</div>
+</mt:if>
+
+<mt:include module="フッター" />

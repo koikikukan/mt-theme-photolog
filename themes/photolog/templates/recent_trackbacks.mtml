@@ -1,0 +1,23 @@
+<dt class="sidetitle">
+Recent Trackbacks
+</dt>
+
+<mt:if tag="BlogPingCount">
+<dd class="side">
+<mt:pings lastn="10">
+<mt:pingsHeader>
+  <ul>
+</mt:pingsHeader>
+    <li><mt:pingEntry><a href="<mt:entryPermalink />"><mt:entryTitle /></a></mt:pingEntry>
+      <ul>
+        <li>
+        └ <a href="<mt:pingURL />" title="p<mt:pingID />"><mt:pingBlogName /></a> <mt:pingDate format="%m/%d" />
+        </li>
+      </ul>
+    </li>
+<mt:pingsFooter>
+  </ul>
+</mt:pingsFooter>
+</mt:pings>
+</dd>
+</mt:if>

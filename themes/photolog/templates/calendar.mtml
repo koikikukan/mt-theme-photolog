@@ -1,0 +1,27 @@
+<mt:ifArchiveTypeEnabled archive_type="Daily">
+<dt class="sidetitle"><mt:date format="%B %Y" language="en" /></dt>
+<dd class="side" id="calendar">
+<table summary="投稿した日にリンクする月別のカレンダー">
+<thead>
+<tr>
+<th abbr="Sunday"><span class="sunday">Sun</span></th>
+<th abbr="Monday"><span class="weekday">Mon</span></th>
+<th abbr="Tuesday"><span class="weekday">Tue</span></th>
+<th abbr="Wednesday"><span class="weekday">Wed</span></th>
+<th abbr="Thursday"><span class="weekday">Thu</span></th>
+<th abbr="Friday"><span class="weekday">Fri</span></th>
+<th abbr="Saturday"><span class="saturday">Sat</span></th>
+</tr>
+</thead>
+<tbody>
+<mt:calendar>
+<mt:calendarWeekHeader><tr></mt:calendarWeekHeader>
+<td<mt:calendarIfToday> class="today"</mt:calendarIfToday>><mt:calendarIfBlank><mt:else><span class="day"></mt:else></mt:calendarIfBlank>
+<mt:calendarIfEntries>
+<mt:entries lastn="1"><a href="<mt:entryLink archive_type="Daily" />"><mt:calendarDay /></a></mt:entries>
+</mt:calendarIfEntries><mt:calendarIfNoEntries><mt:calendarDay /></mt:calendarIfNoEntries><mt:calendarIfBlank>
+<mt:else></span></mt:else></mt:calendarIfBlank></td><mt:calendarWeekFooter></tr></mt:calendarWeekFooter></mt:calendar>
+</tbody>
+</table>
+</dd>
+</mt:ifArchiveTypeEnabled>

@@ -1,0 +1,36 @@
+<dt class="sidetitle">
+Recent Comments
+</dt>
+
+<mt:blogCommentCount setvar="comment_count" />
+<mt:if name="archive_class" like="category|author|datebased">
+  <mt:setVar name="comment_count" value="0" />
+  <mt:entries>
+    <mt:entryCommentCount setvar="entry_count" />
+    <mt:setVar name="comment_count" op="+" value="$entry_count" />
+  </mt:entries>
+<mt:elseIf name="archive_class" like="entry|page">
+  <mt:entryCommentCount setvar="comment_count" />
+</mt:if>
+
+<mt:if name="comment_count">
+<dd class="side">
+<mt:entries lastn="20" recently_commented_on="3">
+<mt:entriesHeader>
+  <ul>
+</mt:entriesHeader>
+    <li><a href="<mt:entryLink$>"><mt:entryTitle></a>
+      <ul>
+  <mt:comments lastn="2">
+        <li>
+        └ <a href="<mt:entryLink$>#c<mt:commentID$>" title="c<mt:commentID$>"><mt:commentAuthor default="Anonymous"></a> <mt:commentDate format="%m/%d"$>
+        </li>
+  </mt:comments>
+      </ul>
+    </li>
+<mt:entriesFooter>
+  </ul>
+</mt:entriesFooter>
+</mt:entries>
+</dd>
+</mt:if>
