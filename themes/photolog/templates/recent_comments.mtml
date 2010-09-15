@@ -2,35 +2,35 @@
 Recent Comments
 </dt>
 
-<mt:blogCommentCount setvar="comment_count" />
+<mt:BlogCommentCount setvar="comment_count" />
 <mt:if name="archive_class" like="category|author|datebased">
-  <mt:setVar name="comment_count" value="0" />
-  <mt:entries>
-    <mt:entryCommentCount setvar="entry_count" />
-    <mt:setVar name="comment_count" op="+" value="$entry_count" />
-  </mt:entries>
+  <mt:SetVar name="comment_count" value="0" />
+  <mt:Entries>
+    <mt:EntryCommentCount setvar="entry_count" />
+    <mt:SetVar name="comment_count" op="+" value="$entry_count" />
+  </mt:Entries>
 <mt:elseIf name="archive_class" like="entry|page">
-  <mt:entryCommentCount setvar="comment_count" />
+  <mt:EntryCommentCount setvar="comment_count" />
 </mt:if>
 
 <mt:if name="comment_count">
 <dd class="side">
-<mt:entries lastn="20" recently_commented_on="3">
-<mt:entriesHeader>
+<mt:Entries lastn="20" recently_commented_on="3">
+<mt:EntriesHeader>
   <ul>
-</mt:entriesHeader>
-    <li><a href="<mt:entryLink$>"><mt:entryTitle></a>
+</mt:EntriesHeader>
+    <li><a href="<mt:EntryLink />"><mt:EntryTitle></a>
       <ul>
-  <mt:comments lastn="2">
+  <mt:Comments lastn="2">
         <li>
-        └ <a href="<mt:entryLink$>#c<mt:commentID$>" title="c<mt:commentID$>"><mt:commentAuthor default="Anonymous"></a> <mt:commentDate format="%m/%d"$>
+        └ <a href="<mt:EntryLink />#c<mt:CommentID />" title="c<mt:CommentID />"><mt:CommentAuthor default="Anonymous"></a> <mt:CommentDate format="%m/%d" />
         </li>
-  </mt:comments>
+  </mt:Comments>
       </ul>
     </li>
-<mt:entriesFooter>
+<mt:EntriesFooter>
   </ul>
-</mt:entriesFooter>
-</mt:entries>
+</mt:EntriesFooter>
+</mt:Entries>
 </dd>
 </mt:if>

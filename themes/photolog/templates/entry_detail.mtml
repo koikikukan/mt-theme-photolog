@@ -1,3 +1,4 @@
+<__trans_section component="photolog">
 <div class="main-entry" id="entry-<mt:EntryID />">
   <h2 class="main-entry-header"><mt:EntryTitle /></h2>
   <div class="entry-content clearfix">
@@ -18,8 +19,8 @@
   </mt:if>
   <mt:SetVar name="footer_width" op="+" value="14" />
       <div class="entry-footer" style="width:<mt:GetVar name="footer_width" />px"><mt:EntryDate language="en" format="%x" />
-  <mt:include module="タグ" />
-  <mt:include module="カテゴリ" />
+  <mt:include module="<__trans phrase="Tags">" />
+  <mt:include module="<__trans phrase="Categories">" />
       </div>
     </div>
   </mt:EntryAssets>
@@ -31,3 +32,4 @@
   </mt:if>
   </div>
 </div>
+</__trans_section>

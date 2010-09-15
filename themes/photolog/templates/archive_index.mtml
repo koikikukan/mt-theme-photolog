@@ -1,17 +1,18 @@
+<__trans_section component="photolog">
 <mt:unless name="page_layout" like="column">
-  <mt:setvar name="page_layout" value="layout-three-column" />
+  <mt:SetVar name="page_layout" value="layout-three-column" />
 </mt:unless>
 <mt:SetVarBlock name="page_title">Archives</mt:SetVarBlock>
-<mt:include module="ヘッダー" class="archive-index" />
+<mt:include module="<__trans phrase="Header">" class="archive-index" />
 
 <mt:if name="page_layout" like="layout-three-column-right|layout-three-column-liquid-right">
 <mt:else>
   <mt:if name="page_layout" like="three|left">
 <div id="links-left-box">
   <dl id="links-left">
-<mt:include module="サイドバー2" />
+<mt:include module="<__trans phrase="Sidebar2">" />
     <mt:if name="page_layout" like="two">
-<mt:include module="サイドバー" />
+<mt:include module="<__trans phrase="Sidebar">" />
     </mt:if>
   </dl>
 </div>
@@ -21,110 +22,110 @@
 <div id="content">
 <div class="blog">
 
-<mt:IfArchiveTypeEnabled archive_type="Category">
-<h2 class="date">カテゴリー一覧</h2>
+<mt:ifArchiveTypeEnabled archive_type="Category">
+<h2 class="date"><__trans phrase="Category Listing"></h2>
 <div class="entry">
   <mt:TopLevelCategories>
     <mt:SubCatIsFirst>
   <ul>
     </mt:SubCatIsFirst>
-    <mt:If tag="CategoryCount">
-    <li><a href="<$mt:CategoryArchiveLink$>" title="<$mt:CategoryDescription$>"><$mt:CategoryLabel$></a>
+    <mt:if tag="CategoryCount">
+    <li><a href="<mt:CategoryArchiveLink />" title="<mt:CategoryDescription />"><mt:CategoryLabel /></a>
     <mt:Else>
-    <li><$mt:CategoryLabel$>
-    </mt:If>
-    <$mt:SubCatsRecurse$>
+    <li><mt:CategoryLabel />
+    </mt:if>
+    <mt:SubCatsRecurse />
     </li>
     <mt:SubCatIsLast>
   </ul>
     </mt:SubCatIsLast>
   </mt:TopLevelCategories>
 </div>
-</mt:IfArchiveTypeEnabled>
+</mt:ifArchiveTypeEnabled>
 
-<mt:IfArchiveTypeEnabled archive_type="Monthly">
+<mt:ifArchiveTypeEnabled archive_type="Monthly">
   <mt:ArchiveList archive_type="Monthly">
     <mt:ArchiveListHeader>
-<h2 class="date">月別一覧</h2>
+<h2 class="date"><__trans phrase="Monthly Listing"></h2>
 <div class="entry">
   <ul>
     </mt:ArchiveListHeader>
-    <li><a href="<$mt:ArchiveLink$>"><$mt:ArchiveTitle$></a></li>
+    <li><a href="<mt:ArchiveLink />"><mt:ArchiveTitle /></a></li>
     <mt:ArchiveListFooter>
   </ul>
 </div>
     </mt:ArchiveListFooter>
   </mt:ArchiveList>
-</mt:IfArchiveTypeEnabled>
+</mt:ifArchiveTypeEnabled>
 
-<mt:Ignore>
+<mt:ignore>
 <!-- List of author archives, if category author are enabled -->
 <mt:IfArchiveTypeEnabled archive_type="Author">
   <mt:ArchiveList archive_type="Author">
     <mt:ArchiveListHeader>
-<h2 class="date">ユーザー一覧</h2>
+<h2 class="date"><__trans phrase="Author Listing"></h2>
 <div class="entry">
   <ul>
     </mt:ArchiveListHeader>
-    <li><a href="<$mt:ArchiveLink$>"><$mt:ArchiveTitle$></a></li>
+    <li><a href="<mt:ArchiveLink />"><mt:ArchiveTitle /></a></li>
     <mt:ArchiveListFooter>
   </ul>
 </div>
     </mt:ArchiveListFooter>
   </mt:ArchiveList>
-</mt:IfArchiveTypeEnabled>
-</mt:Ignore>
+</mt:ifArchiveTypeEnabled>
+</mt:ignore>
 
-<mt:Ignore>
+<mt:ignore>
 <!-- List of category archives by month, if category archives are enabled -->
 <mt:IfArchiveTypeEnabled archive_type="Category-Monthly">
   <mt:ArchiveList archive_type="Category-Monthly">
     <mt:ArchiveListHeader>
-<h2 class="date">月別カテゴリー一覧</h2>
+<h2 class="date"><__trans phrase="Category Monthly Listing"></h2>
 <div class="entry">
   <ul>
       </mt:ArchiveListHeader>
-    <li><a href="<$mt:ArchiveLink$>"><$mt:ArchiveTitle$></a></li>
+    <li><a href="<mt:ArchiveLink />"><mt:ArchiveTitle /></a></li>
       <mt:ArchiveListFooter>
   </ul>
 </div>
       </mt:ArchiveListFooter>
     </mt:ArchiveList>
-  </mt:IfArchiveTypeEnabled>
-</mt:Ignore>
+  </mt:ifArchiveTypeEnabled>
+</mt:ignore>
 
-<mt:Ignore>
+<mt:ignore>
 <!-- List of author archives, if category archives are enabled -->
-<mt:IfArchiveTypeEnabled archive_type="Author-Monthly">
+<mt:ifArchiveTypeEnabled archive_type="Author-Monthly">
   <mt:ArchiveList archive_type="Author-Monthly">
     <mt:ArchiveListHeader>
-<h2 class="date">月別ユーザー一覧</h2>
+<h2 class="date"><__trans phrase="Author Monthly Listing"></h2>
 <div class="entry">
   <ul>
       </mt:ArchiveListHeader>
-    <li><a href="<$mt:ArchiveLink$>"><$mt:ArchiveTitle$></a></li>
+    <li><a href="<mt:ArchiveLink />"><mt:ArchiveTitle /></a></li>
       <mt:ArchiveListFooter>
   </ul>
 </div>
     </mt:ArchiveListFooter>
   </mt:ArchiveList>
-</mt:IfArchiveTypeEnabled>
-</mt:Ignore>
+</mt:ifArchiveTypeEnabled>
+</mt:ignore>
 
-<mt:IfArchiveTypeEnabled archive_type="Individual">
+<mt:ifArchiveTypeEnabled archive_type="Individual">
   <mt:ArchiveList archive_type="Individual">
     <mt:ArchiveListHeader>
-<h2 class="date">ブログ記事一覧</h2>
+<h2 class="date"><__trans phrase="Entry Listing"></h2>
 <div class="entry">
   <ul>
     </mt:ArchiveListHeader>
-    <li><$mt:ArchiveDate format="%Y.%m.%d"$>: <a href="<$mt:ArchiveLink$>"><$mt:ArchiveTitle$></a></li>
+    <li><mt:ArchiveDate format="%Y.%m.%d" />: <a href="<mt:ArchiveLink />"><mt:ArchiveTitle /></a></li>
     <mt:ArchiveListFooter>
   </ul>
 </div>
     </mt:ArchiveListFooter>
   </mt:ArchiveList>
-</mt:IfArchiveTypeEnabled>
+</mt:ifArchiveTypeEnabled>
 
 </div>
 </div>
@@ -132,7 +133,7 @@
 <mt:if name="page_layout" like="layout-three-column-right|layout-three-column-liquid-right">
 <div id="links-left-box">
   <dl id="links-left">
-<mt:include module="サイドバー2" />
+<mt:include module="<__trans phrase="Sidebar2">" />
   </dl>
 </div>
 </mt:if>
@@ -141,11 +142,12 @@
 <div id="links-right-box">
   <dl id="links-right">
   <mt:if name="page_layout" like="two">
-<mt:include module="サイドバー2" />
+<mt:include module="<__trans phrase="Sidebar2">" />
   </mt:if>
-<mt:include module="サイドバー" />
+<mt:include module="<__trans phrase="Sidebar">" />
   </dl>
 </div>
 </mt:if>
 
-<mt:include module="フッター" />
+<mt:include module="<__trans phrase="Footer">" />
+</__trans_section>

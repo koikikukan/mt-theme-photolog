@@ -1,7 +1,7 @@
 <mt:Ignore>
 /*  The following functions and variables are here to support legacy MT templates.
     If you have refreshed your JavaScript template but still use older MT comment
-    templates, you may need to uncomment this block in order for those templates
+    templates, you may need to uncomment this block in order for those templates 
     to work properly. To use, simply remove the 'mt:Ignore' tags wrapping this
     block of code.
 */
@@ -96,7 +96,7 @@ MT.cons = function () {
 <mt:Ignore>
 /**
  * Used for base functionality related to MT
- *
+ * 
  * @package MT
  * @class core
  * @global
@@ -111,7 +111,7 @@ MT.core = function (o) {
     <mt:Ignore>
     /**
      * Makes remote call and handles response
-     *
+     * 
      * @param {String} url The URL endpoint
      * @param {String} respType The type of response expected
      * @param {Function} respHandler The function to handle the response
@@ -173,7 +173,7 @@ MT.core = function (o) {
     <mt:Ignore>
     /**
      * Basic logging function
-     *
+     * 
      * @param {String} level The log level (WARN|DEBUG|INFO|ERROR|LOG)
      * Specified by one of the MT constants
      * @param {String} msg The log message
@@ -192,7 +192,7 @@ MT.core = function (o) {
             break;
             
           default:
-            return false;
+            return false; 
         }
       } else {
         return false;
@@ -204,7 +204,7 @@ MT.core = function (o) {
 <mt:Ignore>
 /**
  * Utilities class
- *
+ * 
  * @package MT
  * @class util
  * @global
@@ -265,7 +265,7 @@ MT.util = function () {
     <mt:Ignore>
     /**
      * Finds the nearest defining (i.e. with an id) parent to the given element
-     *
+     * 
      * @param {HTMLElement} origin the node from which to start the search
      * @return {HTMLElement|Boolean} The parent node with an id attribute or false
      */
@@ -284,7 +284,7 @@ MT.util = function () {
     <mt:Ignore>
     /**
      * Tests objects to verify if they are DOM nodes
-     *
+     * 
      * @param {Object} obj The object to be tested
      * @return {String} the values 'element'|'textnode'|'whitespace'
      */
@@ -335,7 +335,7 @@ MT.util = function () {
   
   /**
    * Initializes the class
-   *
+   * 
    * @return void
    */
   function _init () {
@@ -346,7 +346,7 @@ MT.util = function () {
     _initializeVariables();
     _setCommentOffset(false);
     _checkForAnchor();
-_setCurrentComments();
+		_setCurrentComments();
     _toggleNavLinks();
     _initializeEvents();
   }
@@ -354,7 +354,7 @@ _setCurrentComments();
   <mt:Ignore>
   /**
    * Initializes variables to their initial values
-   *
+   * 
    * @return void
    */
   </mt:Ignore>
@@ -394,32 +394,32 @@ _setCurrentComments();
    * If found, it looks for it on the current page
    * If that fails, it tries to find it in comment list and loads
    * the desired page
-   *
+   * 
    * @return void
    */
   </mt:Ignore>
   function _checkForAnchor() {
     var found = String(window.location.hash).match( /comment-(\d{1,6})/ );
-
-if (found) {
-  M.log(c.DEBUG,found);
-if (!M.getEl(found[0]).hasOwnProperty('className')) {
-if (_findIdMatch(found[1])) {
-    pageNum = Math.floor(commentArrId / commentsPerPage) + 1;
-    M.log(c.DEBUG,'Comment Array Id: ' + commentArrId);
-    M.log(c.DEBUG,'Comments Per Page: ' + commentsPerPage);
-    M.log(c.DEBUG,'Page Number: ' + pageNum);
-    M.log(c.DEBUG,'Comment Offset: ' + _getCommentOffset());
-    _updateComments();
-    }
-}
-}
+		
+		if (found) {
+		  M.log(c.DEBUG,found);
+			if (!Object.prototype.hasOwnProperty.call(M.getEl(found[0]), 'className')) {
+				if (_findIdMatch(found[1])) {
+    			pageNum = Math.floor(commentArrId / commentsPerPage) + 1;
+    			M.log(c.DEBUG,'Comment Array Id: ' + commentArrId);
+    			M.log(c.DEBUG,'Comments Per Page: ' + commentsPerPage);
+    			M.log(c.DEBUG,'Page Number: ' + pageNum);
+    			M.log(c.DEBUG,'Comment Offset: ' + _getCommentOffset());
+    			_updateComments();
+    		}
+			}
+		}
   }
   
   <mt:Ignore>
   /**
    * Sets commentsOffset (i.e. the offset number to the remote list)
-   *
+   * 
    * @return void
    */
   </mt:Ignore>
@@ -430,7 +430,7 @@ if (_findIdMatch(found[1])) {
   <mt:Ignore>
   /**
    * Gets the commentsOffset (i.e. the offset number to the remote list)
-   *
+   * 
    * @return void
    */
   </mt:Ignore>
@@ -441,7 +441,7 @@ if (_findIdMatch(found[1])) {
   <mt:Ignore>
   /**
    * General event handler
-   *
+   * 
    * @param {Event} e The event object
    * @return void
    */
@@ -467,7 +467,7 @@ if (_findIdMatch(found[1])) {
             if(e.preventDefault) {
               e.preventDefault();
             } else {
-              e.returnValue =false;
+              e.returnValue =	false;
             }
             if(!isLoading) {
               _previousPage();
@@ -478,7 +478,7 @@ if (_findIdMatch(found[1])) {
             if(e.preventDefault) {
               e.preventDefault();
             } else {
-              e.returnValue =false;
+              e.returnValue =	false;
             }
             if(!isLoading) {
               _nextPage();
@@ -492,7 +492,7 @@ if (_findIdMatch(found[1])) {
   <mt:Ignore>
   /**
    * Toggles the visibility of the navigation links
-   *
+   * 
    * @return void
    */
   </mt:Ignore>
@@ -523,7 +523,7 @@ if (_findIdMatch(found[1])) {
   /**
    * Determines appropriate action based on the id of the parent
    * clicked link. Decrements pageNum based on id.
-   *
+   * 
    * @param {String} id the id of the parent of the clicked link
    * @return void
    */
@@ -539,7 +539,7 @@ if (_findIdMatch(found[1])) {
   /**
    * Determines appropriate action based on the id of the parent
    * clicked link. Increments/decrements pageNum based on id.
-   *
+   * 
    * @param {String} id the id of the parent of the clicked link
    * @return void
    */
@@ -554,7 +554,7 @@ if (_findIdMatch(found[1])) {
   <mt:Ignore>
   /**
    * Searches for a particular comment in the list of ids
-   *
+   * 
    * @param {String} id The id for which to search
    * @return {Boolean} true, if found, false otherwise
    */
@@ -562,15 +562,15 @@ if (_findIdMatch(found[1])) {
   function _findIdMatch (id) {
     var len = MT.commentIds.length;
     
-  while (len--) {
-  if (MT.commentIds[len] == id) {
-  commentAnchor = "comment-" + id;
-  commentArrId = len;
-  return true;
-  }
-  }
-  
-  return false;
+  	while (len--) {
+  		if (MT.commentIds[len] == id) {
+  			commentAnchor = "comment-" + id;
+  			commentArrId = len;
+  			return true;
+  		}
+  	}
+  	
+  	return false;
   }
   
   <mt:Ignore>
@@ -589,7 +589,7 @@ if (_findIdMatch(found[1])) {
   <mt:Ignore>
   /**
    * Sets the "current-comments" element with the HTML value
-   *
+   * 
    * @param {String|Element} currentCommentsHTML The content to be set
    * @return void
    */
@@ -602,8 +602,8 @@ if (_findIdMatch(found[1])) {
   <mt:Ignore>
   /**
    * Sets the content of the comment list
-   *
-   * @param {String|Element} commentHTML The content to be set
+   * 
+   * @param {String|Element} commentHTML The content to be set 
    * @return void
    */
   </mt:Ignore>
@@ -615,7 +615,7 @@ if (_findIdMatch(found[1])) {
   /**
    * Builds the appropriate URL to make a remote call to get the
    * next set of comments
-   *
+   * 
    * @return void
    */
   </mt:Ignore>
@@ -635,8 +635,8 @@ if (_findIdMatch(found[1])) {
         "&offset=",
         _getCommentOffset()
       ].join('');
-  
-  if (!commentAnchor) {
+  	
+  	if (!commentAnchor) {
       commentAnchor = "comments-content";
     }
     
@@ -646,8 +646,8 @@ if (_findIdMatch(found[1])) {
     } else {
       M.connect(jsonUrl,c.JSON,function (json) {
         cache[jsonUrl] = json.comments;
-      _refreshComments(json.comments);
-      isLoading = false;
+    	  _refreshComments(json.comments);
+    	  isLoading = false;
       });
     }
   }
@@ -655,7 +655,7 @@ if (_findIdMatch(found[1])) {
   <mt:Ignore>
   /**
    * Refreshes the comment data with the current
-   *
+   * 
    * @param {String} commentData The data used to replace current comments
    * @return void
    */
@@ -683,31 +683,31 @@ function mtRelativeDate(ts, fds) {
 
     var str;
     if (delta < 60) {
-        str = '直前';
+        str = '<__trans phrase="moments ago" escape="js">';
     } else if (delta <= 86400) {
         // less than 1 day
         var hours = Math.floor(delta / 3600);
         var min = Math.floor((delta % 3600) / 60);
         if (hours == 1)
-            str = '1 時間前';
+            str = '<__trans phrase="[quant,_1,hour,hours] ago" params="1" escape="js">';
         else if (hours > 1)
-            str = '2 時間前'.replace(/2/, hours);
+            str = '<__trans phrase="[quant,_1,hour,hours] ago" params="2" escape="js">'.replace(/2/, hours);
         else if (min == 1)
-            str = '1 分前';
+            str = '<__trans phrase="[quant,_1,minute,minutes] ago" params="1" escape="js">';
         else
-            str = '2 分前'.replace(/2/, min);
+            str = '<__trans phrase="[quant,_1,minute,minutes] ago" params="2" escape="js">'.replace(/2/, min);
     } else if (delta <= 604800) {
         // less than 1 week
         var days = Math.floor(delta / 86400);
         var hours = Math.floor((delta % 86400) / 3600);
         if (days == 1)
-            str = '1 日前';
+            str = '<__trans phrase="[quant,_1,day,days] ago" params="1" escape="js">';
         else if (days > 1)
-            str = '2 日前'.replace(/2/, days);
+            str = '<__trans phrase="[quant,_1,day,days] ago" params="2" escape="js">'.replace(/2/, days);
         else if (hours == 1)
-            str = '1 時間前';
+            str = '<__trans phrase="[quant,_1,hour,hours] ago" params="1" escape="js">';
         else
-            str = '2 時間前'.replace(/2/, hours);
+            str = '<__trans phrase="[quant,_1,hour,hours] ago" params="2" escape="js">'.replace(/2/, hours);
     }
     return str ? str : fds;
 }
@@ -723,7 +723,7 @@ function mtEditLink(entry_id, author_id) {
     if (! entry_id) return;
     if (! author_id) return;
     if (u.id != author_id) return;
-    var link = '<a href="<$mt:AdminScript$>?__mode=view&amp;_type=entry&amp;id=' + entry_id + '">編集</a>';
+    var link = '<a href="<$mt:AdminScript$>?__mode=view&amp;_type=entry&amp;id=' + entry_id + '"><__trans phrase="Edit" escape="js"></a>';
     document.write(link);
 }
 
@@ -974,7 +974,7 @@ function mtCommentSessionVerify(app_user) {
     if ( u && app_user && app_user.sid && ( u.sid == app_user.sid ) ) {
         f.submit();
     } else {
-        alert('セッションの有効期限が切れています。再度サインインしてください。');
+        alert('<__trans phrase="Your session has expired. Please sign in again to comment." escape="js">');
         mtClearUser();
         mtFireEvent('usersignin');
 <mt:IfRegistrationRequired>
@@ -1099,7 +1099,7 @@ function mtSignInOnClick(sign_in_element) {
             el = document.getElementById('comment-form-external-auth');
     }
     if (el)
-        el.innerHTML = 'サインインします... <span class="status-indicator">&nbsp;</span>';
+        el.innerHTML = '<__trans phrase="Signing in..." escape="js"> <span class="status-indicator">&nbsp;</span>';
 
     mtClearUser(); // clear any 'anonymous' user cookie to allow sign in
     mtFetchUser('mtSetUserOrLogin');
@@ -1178,7 +1178,7 @@ function mtShowGreeting() {
 
     if ( u && u.is_authenticated ) {
         if ( u.is_banned ) {
-            phrase = 'このブログにコメントする権限を持っていません。(\<a href=\"javas\cript:void(0);\" onclick=\"return mtSignOutOnClick();\"\>サインアウトする\<\/a\>)';
+            phrase = '<__trans phrase="You do not have permission to comment on this blog. ([_1]sign out[_2])" params="<a href="javascript:void(0);" onclick="return mtSignOutOnClick();">%%</a>" escape="js">';
         } else {
             var user_link;
             if ( u.is_author ) {
@@ -1192,14 +1192,14 @@ function mtShowGreeting() {
                     user_link = u.name;
             }
             // TBD: supplement phrase with userpic if one is available.
-            phrase = '__NAME__としてサインインしています。(\<a href=\"javas\cript:void(0)\" onclick=\"return mtSignOutOnClick();\"\>サインアウト\<\/a\>)';
+            phrase = '<__trans phrase="Thanks for signing in, __NAME__. ([_1]sign out[_2])" params="<a href="javascript:void(0)" onclick="return mtSignOutOnClick();">%%</a>" escape="js">';
             phrase = phrase.replace(/__NAME__/, user_link);
         }
     } else {
         if (reg_reqd) {
-            phrase = 'コメントするにはまず\<a href=\"javas\cript:void(0)\" onclick=\"return mtSignInOnClick(\'comment-greeting\')\"\>サインイン\<\/a\>してください。';
+            phrase = '<__trans phrase="[_1]Sign in[_2] to comment." params="<a href="javascript:void(0)" onclick="return mtSignInOnClick('comment-greeting')">%%</a>" escape="js">';
         } else {
-            phrase = 'コメントする前に\<a href=\"javas\cript:void(0)\" onclick=\"return mtSignInOnClick(\'comment-greeting\')\"\>サインイン\<\/a\>することもできます。 ';
+            phrase = '<__trans phrase="[_1]Sign in[_2] to comment, or comment anonymously." params="<a href="javascript:void(0)" onclick="return mtSignInOnClick('comment-greeting')">%%</a>" escape="js">';
         }
     }
     el.innerHTML = phrase;
@@ -1222,12 +1222,12 @@ function mtReplyCommentOnClick(parent_id, author) {
     var text = document.getElementById('comment-text');
 
     // Populate label with new values
-    var reply_text = '\<a href=\"#comment-__PARENT__\" onclick=\"location.href=this.href; return false\"\>__AUTHOR__からのコメント\<\/a\>に返信';
+    var reply_text = '<__trans phrase="Replying to <a href="[_1]" onclick="[_2]">comment from [_3]</a>" params="#comment-__PARENT__%%location.href=this.href; return false%%__AUTHOR__" escape="js">';
     reply_text = reply_text.replace(/__PARENT__/, parent_id);
     reply_text = reply_text.replace(/__AUTHOR__/, author);
     label.innerHTML = reply_text;
 
-    checkbox.value = parent_id;
+    checkbox.value = parent_id; 
     checkbox.checked = true;
     try {
         // text field may be hidden

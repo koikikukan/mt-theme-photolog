@@ -1,39 +1,40 @@
+<__trans_section component="photolog">
 <mt:unless name="page_layout" like="column">
-  <mt:setvar name="page_layout" value="layout-three-column" />
+  <mt:SetVar name="page_layout" value="layout-three-column" />
 </mt:unless>
 <mt:if name="body_class" eq="mt-comment-confirmation">
-    <mt:setVarBlock name="page_title">投稿されたコメント</mt:setVarBlock>
-    <mt:setVar name="heading" value="確認" />
-    <mt:setVarBlock name="message">
-    <p>コメントを投稿しました。</p>
-    </mt:setVarBlock>
+    <mt:SetVarBlock name="page_title"><__trans phrase="Confirmation..."></mt:SetVarBlock>
+    <mt:SetVar name="heading" value="<__trans phrase="Confirmation...">" />
+    <mt:SetVarBlock name="message">
+    <p><__trans phrase="Your comment has been submitted!"></p>
+    </mt:SetVarBlock>
 </mt:if>
 <mt:if name="body_class" eq="mt-comment-pending">
-    <mt:setVarBlock name="page_title">コメント保留中</mt:setVarBlock>
-    <mt:setVar name="heading" value="コメントありがとうございます。" />
-    <mt:setVarBlock name="message">
-    <p>コメントは現在承認されるまで公開を保留されています。</p>
-    </mt:setVarBlock>
+    <mt:SetVarBlock name="page_title"><__trans phrase="Comment Pending"></mt:SetVarBlock>
+    <mt:SetVar name="heading" value="<__trans phrase="Thank you for commenting.">" />
+    <mt:SetVarBlock name="message">
+    <p><__trans phrase="Your comment has been received and held for approval by the blog owner."></p>
+    </mt:SetVarBlock>
 </mt:if>
 <mt:if name="body_class" eq="mt-comment-error">
-    <mt:setVarBlock name="page_title">コメント投稿エラー</mt:setVarBlock>
-    <mt:setVar name="heading" value="$page_title" />
-    <mt:setVarBlock name="message">
-    <p>コメントの投稿に失敗しました:</p>
+    <mt:SetVarBlock name="page_title"><__trans phrase="Comment Submission Error"></mt:SetVarBlock>
+    <mt:SetVar name="heading" value="$page_title" />
+    <mt:SetVarBlock name="message">
+    <p><__trans phrase="Your comment submission failed for the following reason">:</p>
     <blockquote>
         <mt:ErrorMessage />
     </blockquote>
-    </mt:setVarBlock>
+    </mt:SetVarBlock>
 </mt:if>
-<mt:include module="ヘッダー" class="comment-confirm" />
+<mt:include module="<__trans phrase="Header">" class="comment-confirm" />
 
 <mt:unless name="page_layout" eq="layout-three-column-right">
   <mt:if name="page_layout" like="three|left">
 <div id="links-left-box">
   <dl id="links-left">
-<mt:include module="サイドバー2" />
+<mt:include module="<__trans phrase="Sidebar2">" />
     <mt:if name="page_layout" like="two">
-<mt:include module="サイドバー" />
+<mt:include module="<__trans phrase="Sidebar">" />
     </mt:if>
   </dl>
 </div>
@@ -52,34 +53,34 @@
         <div class="comments-content">
 
 <mt:if name="body_class" eq="mt-comment-pending">
-<div class="comments-header">コメントありがとうございます</div>
+<div class="comments-header"><__trans phrase="Thank you for commenting."></div>
 <div class="comment">
    <div class="comment-content">
-      <p>コメントを受け付けました。受け付けたコメントは、ブログの管理者の承認のため保留されています。</p>
-      <p><a href="<mt:EntryLink>">元のエントリーに戻る</a></p>
+      <p><__trans phrase="Thank you for commenting. Your comment has been received and held for approval by the blog owner."></p>
+      <p><a href="<mt:EntryLink>"><__trans phrase="Return to the original entry."></a></p>
    </div>
 </div>
 </mt:if>
 
 <mt:if name="body_class" eq="mt-comment-confirmation">
-<div class="comments-header">コメントありがとうございます</div>
+<div class="comments-header"><__trans phrase="Thank you for commenting."></div>
 <div class="comment">
    <div class="comment-content">
-      <p>コメントを受け付けました。<a href="<mt:EntryLink>">元のエントリーに戻る</a></p>
+      <p><__trans phrase="Your comment has been submitted!"><a href="<mt:EntryLink>"><__trans phrase="Return to the original entry."></a></p>
    </div>
 </div>
 </mt:if>
 
 <mt:if name="body_class" eq="mt-comment-error">
-<div class="comments-header">コメントの登録エラー</div>
+<div class="comments-header"><__trans phrase="Comment Submission Error"></div>
 <div class="comment">
    <div class="comment-content">
-      <p>コメントの登録が失敗しました:</p>
-      <blockquote><p style="margin:0;"><strong><mt:errorMessage /></strong></p></blockquote>
+      <p><__trans phrase="Your comment submission failed.">:</p>
+      <blockquote><p style="margin:0;"><strong><mt:ErrorMessage /></strong></p></blockquote>
    </div>
 </div>
 
-<mt:include module="コメント" />
+<mt:include module="<__trans phrase="Comments">" />
 </mt:if>
 
         </div>
@@ -89,14 +90,14 @@
 </mt:if>
   </div>
 <mt:if name="page_layout" ne="layout-one-column">
-<p id="footer"<mt:if name="page_layout" like="liquid"> class="clearfix"</mt:if>>Copyright &copy; <mt:Entries lastn="1"><mt:EntryDate format="%Y"></mt:Entries> <mt:blogName encode_html="1" /> All Rights Reserved.</p>
+<p id="footer"<mt:if name="page_layout" like="liquid"> class="clearfix"</mt:if>>Copyright &copy; <mt:Entries lastn="1"><mt:EntryDate format="%Y"></mt:Entries> <mt:BlogName encode_html="1" /> All Rights Reserved.</p>
 </mt:if>
 </div>
 
 <mt:if name="page_layout" like="layout-three-column-right|layout-three-column-liquid-right">
 <div id="links-left-box">
   <dl id="links-left">
-<mt:include module="サイドバー2" />
+<mt:include module="<__trans phrase="Sidebar2">" />
   </dl>
 </div>
 </mt:if>
@@ -105,11 +106,12 @@
 <div id="links-right-box">
   <dl id="links-right">
   <mt:if name="page_layout" like="two">
-<mt:include module="サイドバー2" />
+<mt:include module="<__trans phrase="Sidebar2">" />
   </mt:if>
-<mt:include module="サイドバー" />
+<mt:include module="<__trans phrase="Sidebar">" />
   </dl>
 </div>
 </mt:if>
 
-<mt:include module="フッター" />
+<mt:include module="<__trans phrase="Footer">" />
+</__trans_section>

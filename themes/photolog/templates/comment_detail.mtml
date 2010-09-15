@@ -1,12 +1,14 @@
-<div class="comment"<mt:ifArchiveTypeEnabled archive_type="Individual"> id="c<mt:commentID />"</mt:ifArchiveTypeEnabled>>
+<__trans_section component="photolog">
+<div class="comment"<mt:ifArchiveTypeEnabled archive_type="Individual"> id="c<mt:CommentID />"</mt:ifArchiveTypeEnabled>>
 
    <div class="comment-content">
    <mt:ifCommentParent>
-   <p><a href="<mt:commentParent>#comment-<mt:commentID /></mt:commentParent>"><mt:commentParent>No.<mt:commentID />の<mt:commentAuthor /></mt:commentParent></a>さんのコメントへの返信</p>
+   <p><a href="<mt:CommentParent>#comment-<mt:CommentID /></mt:CommentParent>"><mt:CommentParent>No.<mt:CommentID />の<mt:CommentAuthor /></mt:CommentParent></a><__trans phrase="Replying to comment from"></p>
    </mt:ifCommentParent>
-   <mt:commentBody /></div>
+   <mt:CommentBody /></div>
 
    <p class="comment-footer">
-      Posted by <mt:commentAuthorLink default_name="Anonymous" show_email="0" /> <mt:if tag="CommentAuthorIdentity"><mt:commentAuthorIdentity /></mt:if> at <mt:commentDate /><mt:ifCommentsAccepted> | <mt:commentReplyToLink /></mt:ifCommentsAccepted>
+      Posted by <mt:CommentAuthorLink default_name="Anonymous" show_email="0" /> <mt:if tag="CommentAuthorIdentity"><mt:CommentAuthorIdentity /></mt:if> at <mt:CommentDate /><mt:ifCommentsAccepted> | <mt:CommentReplyToLink /></mt:ifCommentsAccepted>
    </p>
 </div>
+</__trans_section>

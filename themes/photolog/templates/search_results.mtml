@@ -1,29 +1,30 @@
+<__trans_section component="photolog">
 <mt:unless name="page_layout" like="column">
-  <mt:setvar name="page_layout" value="layout-one-column" />
+  <mt:SetVar name="page_layout" value="layout-one-column" />
 </mt:unless>
-<mt:setVarBlock name="page_title">検索結果</mt:setVarBlock>
+<mt:setVarBlock name="page_title"><__trans phrase="Search Results"></mt:SetVarBlock>
 <mt:if name="page_layout" like="layout-three-column">
-  <mt:ignore>3カラムレイアウトのサムネイル表示枚数と最大幅</mt:ignore>
+  <mt:ignore><__trans phrase="Number of thumbnail and max size of image for three column layout."></mt:ignore>
   <mt:SetVar name="thumbnail_max" value="5" />
   <mt:SetVar name="thumbnail_max_size" value="458px" />
 <mt:elseIf name="page_layout" like="layout-two-column">
-  <mt:ignore>2カラムレイアウトのサムネイル表示枚数と最大幅</mt:ignore>
+  <mt:ignore><__trans phrase="Number of thumbnail and max size of image for two column layout."></mt:ignore>
   <mt:SetVar name="thumbnail_max" value="8" />
   <mt:SetVar name="thumbnail_max_size" value="743px" />
 <mt:else>
-  <mt:ignore>1カラムレイアウトのサムネイル表示枚数と最大幅</mt:ignore>
+  <mt:ignore><__trans phrase="Number of thumbnail and max size of image for one column layout."></mt:ignore>
   <mt:SetVar name="thumbnail_max" value="8" />
   <mt:SetVar name="thumbnail_max_size" value="743px" />
 </mt:if>
 <mt:ifStraightSearch>
-    <mt:setVar name="search_type" value="search" />
+    <mt:SetVar name="search_type" value="search" />
 <mt:else>
-    <mt:setVar name="search_type" value="tag" />
+    <mt:SetVar name="search_type" value="tag" />
 </mt:ifStraightSearch>
-<mt:setVarBlock name="html_head">
+<mt:SetVarBlock name="html_head">
 <script type="text/javascript">
 /* <![CDATA[ */
-var user = <mt:userSessionState />;
+var user = <mt:UserSessionState />;
 <mt:ifMoreResults>
 function getResults(page) {
     page = parseInt(page);
@@ -72,21 +73,21 @@ function swapContent(direction) {
 <mt:else><mt:ifPreviousResults>
 function swapContent(direction) {
 return true;
-}</mt:IfPreviousResults>
-</mt:IfMoreResults>
+}</mt:ifPreviousResults>
+</mt:ifMoreResults>
 /* ]]> */
 </script>
-</mt:setVarBlock>
-<mt:include module="ヘッダー" class="archive" />
+</mt:SetVarBlock>
+<mt:include module="<__trans phrase="Header">" class="archive" />
 
 <mt:if name="page_layout" like="layout-three-column-right|layout-three-column-liquid-right">
 <mt:else>
   <mt:if name="page_layout" like="three|left">
 <div id="links-left-box">
   <dl id="links-left">
-<mt:include module="サイドバー2" />
+<mt:include module="<__trans phrase="Sidebar2">" />
     <mt:if name="page_layout" like="two">
-<mt:include module="サイドバー" />
+<mt:include module="<__trans phrase="Sidebar">" />
     </mt:if>
   </dl>
 </div>
@@ -97,27 +98,38 @@ return true;
 <div class="blog">
 
 <h2 class="search-results-header">
-<mt:ifStraightSearch>「<mt:SearchString />」</mt:ifStraightSearch>
-<mt:ifTagSearch>タグ「<mt:SearchString />」</mt:ifTagSearch>
-の検索結果
+<mt:ifStraightSearch><__trans phrase="Results matching &ldquo;[_1]&rdquo;" params="<$mt:SearchString$>"></mt:ifStraightSearch>
+<mt:ifTagSearch><__trans phrase="Results tagged &ldquo;[_1]&rdquo;" params="<$mt:SearchString$>"></mt:ifTagSearch>
 </h2>
 
-<div id="gallery2" class="photolist clearfix">
-<ul>
-<mt:SetVar name="counter" value="1" />
+<mt:SetVarTemplate id="search_results" name="search_results">
 <mt:SearchResults>
+  <mt:SearchResultsHeader>
+  <mt:SetVar name="counter" value="1" />
+<div id="search-results">
+  <span id="current-page" style="display:none"><mt:CurrentPage /></span>
+  <div id="gallery2" class="photolist clearfix">
+    <ul>
+  </mt:SearchResultsHeader>
   <mt:EntryAssets type="image" lastn="1">
 <mt:if name="counter" eq="1">
-<li class="start"><a href="<mt:EntryPermalink />"><img src="<mt:AssetThumbnailURL width="70" square="1" />" class="asset-img-thumb" alt="<mt:EntryTitle />" title="Go to <mt:EntryTitle />'s page" /></a></li>
+      <li class="start"><a href="<mt:EntryPermalink />"><img src="<mt:AssetThumbnailURL width="70" square="1" />" class="asset-img-thumb" alt="<mt:EntryTitle />" title="Go to <mt:EntryTitle />'s page" /></a></li>
 <mt:else>
 <li<mt:if name="counter" op="%" value="$thumbnail_max" eq="1"> class="start"</mt:if>><a href="<mt:EntryPermalink />"><img src="<mt:AssetThumbnailURL width="70" square="1" />" class="asset-img-thumb" alt="<mt:EntryTitle />" title="Go to <mt:EntryTitle />'s page" /></a></li>
 </mt:if>
   <mt:SetVar name="counter" op="++" />
   </mt:EntryAssets>
-</mt:SearchResults>
-</ul>
-</div>
-
+  <mt:SearchResultsFooter>
+    </ul>
+  </div>
+<mt:PagerBlock>
+  <mt:GetVar name="__value__" setvar="result_number" />
+</mt:PagerBlock>
+<mt:unless name="result_number" eq="1">
+  <div class="content-nav">
+<mt:ifPreviousResults><a href="<mt:PreviousLink />" rel="prev" onclick="return swapContent(-1);">&lt; <__trans phrase="Previous"></a>&nbsp;&nbsp;</mt:ifPreviousResults><mt:PagerBlock><mt:ifCurrentPage><mt:Var name="__value__" /><mt:else><a href="<mt:PagerLink />"><mt:GetVar name="__value__" /></a></mt:ifCurrentPage><mt:unless name="__last__">&nbsp;</mt:unless></mt:PagerBlock><mt:ifMoreResults>&nbsp;&nbsp;<a href="<mt:NextLink />" rel="next" onclick="return swapContent();"><__trans phrase="Next"> &gt;</a></mt:ifMoreResults>
+  </div>
+</mt:unless>
 <mt:SetVar name="counter" op="--" />
 <mt:GetVar name="counter" setvar="total" />
 <mt:SetVar name="counter" op="*" value="95" />
@@ -129,35 +141,32 @@ $('#gallery2').find('ul').css('width','<mt:GetVar name="counter" />px');
 $('#gallery2').find('ul').css('width','743px');
 </mt:if>
 </script>
-
-<mt:noSearchResults>
-<h2 class="date">
-    <mt:ifStraightSearch>
-    「<mt:searchString />」が含まれるブログ記事
-    </mt:ifStraightSearch>
-    <mt:ifTagSearch>
-    タグ「<mt:searchString />」が付いているブログ記事
-    </mt:ifTagSearch>
-</h2>
-<div class="entry">
-<p>「<mt:searchString />」を含むコンテンツが見つかりませんでした。</p>
 </div>
-</mt:noSearchResults>
+  </mt:SearchResultsFooter>
+</mt:SearchResults>
+</mt:SetVarTemplate>
+<mt:GetVar name="search_results" />
 
-<mt:IfMoreResults>
+<mt:NoSearchResults>
+<div id="gallery2" class="photolist clearfix">
+<p><__trans phrase="No results found for &ldquo;[_1]&rdquo;." params="<mt:SearchString />"></p>
+</div>
+</mt:NoSearchResults>
+
+<mt:ifMoreResults>
 <script type="text/javascript">
 <!--
 var div = document.getElementById('search-results');
 var results = {
-    '<mt:currentPage />': {
+    '<mt:CurrentPage />': {
         'content': div.innerHTML,
-        'next_url': '<mt:nextLink />'
+        'next_url': '<mt:NextLink />'
     }
 };
-var timer = window.setTimeout("getResults(" + <mt:currentPage /> + ")", 1*1000);
+var timer = window.setTimeout("getResults(" + <mt:CurrentPage /> + ")", 1*1000);
 //-->
 </script>
-</mt:IfMoreResults>
+</mt:ifMoreResults>
 
 </div>
 <mt:if name="page_layout" ne="layout-one-column">
@@ -168,7 +177,7 @@ var timer = window.setTimeout("getResults(" + <mt:currentPage /> + ")", 1*1000);
 <mt:if name="page_layout" like="layout-three-column-right|layout-three-column-liquid-right">
 <div id="links-left-box">
   <dl id="links-left">
-<mt:include module="サイドバー2" />
+<mt:include module="<__trans phrase="Sidebar2">" />
   </dl>
 </div>
 </mt:if>
@@ -177,11 +186,12 @@ var timer = window.setTimeout("getResults(" + <mt:currentPage /> + ")", 1*1000);
 <div id="links-right-box">
   <dl id="links-right">
   <mt:if name="page_layout" like="two">
-<mt:include module="サイドバー2" />
+<mt:include module="<__trans phrase="Sidebar2">" />
   </mt:if>
-<mt:include module="サイドバー" />
+<mt:include module="<__trans phrase="Sidebar">" />
   </dl>
 </div>
 </mt:if>
 
-<mt:include module="フッター" />
+<mt:include module="<__trans phrase="Footer">" />
+</__trans_section>

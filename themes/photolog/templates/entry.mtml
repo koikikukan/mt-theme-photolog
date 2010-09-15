@@ -1,8 +1,9 @@
+<__trans_section component="photolog">
 <mt:unless name="page_layout" like="column">
-  <mt:setvar name="page_layout" value="layout-one-column" />
+  <mt:SetVar name="page_layout" value="layout-one-column" />
 </mt:unless>
-<mt:setVar name="body_onload" value="mtEntryOnLoad()" />
-<mt:setVarBlock name="page_title"><mt:entryTitle remove_html="1" /></mt:setVarBlock>
+<mt:SetVar name="body_onload" value="mtEntryOnLoad()" />
+<mt:SetVarBlock name="page_title"><mt:entryTitle remove_html="1" /></mt:SetVarBlock>
 <mt:if name="page_layout" like="layout-three-column">
   <mt:SetVar name="photo_size" value="450" />
   <mt:SetVar name="thumbnail_max" value="3" />
@@ -28,16 +29,16 @@ $(function(){
 //]]>
 </script>
 </mt:SetVarBlock>
-<mt:include module="ヘッダー" />
+<mt:include module="<__trans phrase="Header">" />
 
 <mt:if name="page_layout" like="layout-three-column-right|layout-three-column-liquid-right">
 <mt:else>
   <mt:if name="page_layout" like="three|left">
 <div id="links-left-box">
   <dl id="links-left">
-<mt:include module="サイドバー2" />
+<mt:include module="<__trans phrase="Sidebar2">" />
     <mt:if name="page_layout" like="two">
-<mt:include module="サイドバー" />
+<mt:include module="<__trans phrase="Sidebar">" />
     </mt:if>
   </dl>
 </div>
@@ -47,21 +48,21 @@ $(function(){
 <div id="content">
 <div class="blog">
 
-<mt:include module="ブログ記事の詳細" />
+<mt:include module="<__trans phrase="Entry Detail">" />
 
 <div class="content-nav">
-    <mt:entryPrevious>
-    <a href="<mt:entryPermalink />">&laquo; <mt:entryTitle /></a> |
-    </mt:entryPrevious>
-    <a href="<mt:link template="main_index" />">Main</a>
-    <mt:entryNext>
-    | <a href="<mt:entryPermalink />"><mt:entryTitle /> &raquo;</a>
-    </mt:entryNext>
+    <mt:EntryPrevious>
+    <a href="<mt:EntryPermalink />">&laquo; <mt:EntryTitle /></a> |
+    </mt:EntryPrevious>
+    <a href="<mt:Link template="main_index" />">Main</a>
+    <mt:EntryNext>
+    | <a href="<mt:EntryPermalink />"><mt:EntryTitle /> &raquo;</a>
+    </mt:EntryNext>
 </div>
 
 <mt:unless name="page_layout" like="layout-one-column">
-<mt:include module="トラックバック" />
-<mt:include module="コメント" />
+<mt:include module="<__trans phrase="Trackbacks">" />
+<mt:include module="<__trans phrase="Comments">" />
 </mt:unless>
 
 </div>
@@ -83,8 +84,8 @@ $(function(){
 <div id="communication-box">
   <div id="communication-content">
     <div class="communication-blog clearfix">
-<mt:include module="トラックバック" />
-<mt:include module="コメント" />
+<mt:include module="<__trans phrase="Trackbacks">" />
+<mt:include module="<__trans phrase="Comments">" />
     </div>
   </div>
 </div>
@@ -94,7 +95,7 @@ $(function(){
 <mt:if name="page_layout" like="layout-three-column-right|layout-three-column-liquid-right">
 <div id="links-left-box">
   <dl id="links-left">
-<mt:Include module="サイドバー2" />
+<mt:Include module="<__trans phrase="Sidebar2">" />
   </dl>
 </div>
 </mt:if>
@@ -103,11 +104,12 @@ $(function(){
 <div id="links-right-box">
   <dl id="links-right">
   <mt:if name="page_layout" like="two">
-<mt:include module="サイドバー2" />
+<mt:include module="<__trans phrase="Sidebar2">" />
   </mt:if>
-<mt:include module="サイドバー" />
+<mt:include module="<__trans phrase="Sidebar">" />
   </dl>
 </div>
 </mt:if>
 
-<mt:include module="フッター" />
+<mt:include module="<__trans phrase="Footer">" />
+</__trans_section>

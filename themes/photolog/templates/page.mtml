@@ -1,18 +1,19 @@
+<__trans_section component="photolog">
 <mt:unless name="page_layout" like="column">
-  <mt:setvar name="page_layout" value="layout-three-column" />
+  <mt:Setvar name="page_layout" value="layout-three-column" />
 </mt:unless>
-<mt:setVar name="body_onload" value="mtEntryOnLoad()" />
-<mt:setVarBlock name="page_title"><mt:pageTitle remove_html="1" /></mt:setVarBlock>
-<mt:include module="ヘッダー" />
+<mt:SetVar name="body_onload" value="mtEntryOnLoad()" />
+<mt:SetVarBlock name="page_title"><mt:PageTitle remove_html="1" /></mt:setVarBlock>
+<mt:include module="<__trans phrase="Header">" />
 
 <mt:if name="page_layout" like="layout-three-column-right|layout-three-column-liquid-right">
 <mt:else>
   <mt:if name="page_layout" like="three|left">
 <div id="links-left-box">
   <dl id="links-left">
-<mt:include module="サイドバー2" />
+<mt:include module="<__trans phrase="Sidebar2">" />
     <mt:if name="page_layout" like="two">
-<mt:include module="サイドバー" />
+<mt:include module="<__trans phrase="Sidebar">" />
     </mt:if>
   </dl>
 </div>
@@ -21,11 +22,11 @@
 
 <div id="content">
 <div class="blog">
-<mt:include module="ウェブページの詳細" />
+<mt:include module="<__trans phrase="Page Detail">" />
 
 <mt:unless name="page_layout" like="layout-one-column">
-<mt:include module="トラックバック" />
-<mt:include module="コメント" />
+<mt:include module="<__trans phrase="Trackbacks">" />
+<mt:include module="<__trans phrase="Comments">" />
 </mt:unless>
 
 </div>
@@ -47,8 +48,8 @@
 <div id="communication-box">
   <div id="communication-content">
     <div class="communication-blog clearfix">
-<mt:include module="トラックバック" />
-<mt:include module="コメント" />
+<mt:include module="<__trans phrase="Trackbacks">" />
+<mt:include module="<__trans phrase="Comments">" />
     </div>
   </div>
 </div>
@@ -58,7 +59,7 @@
 <mt:if name="page_layout" like="layout-three-column-right|layout-three-column-liquid-right">
 <div id="links-left-box">
   <dl id="links-left">
-<mt:include module="サイドバー2" />
+<mt:include module="<__trans phrase="Sidebar2">" />
   </dl>
 </div>
 </mt:if>
@@ -67,11 +68,12 @@
 <div id="links-right-box">
   <dl id="links-right">
   <mt:if name="page_layout" like="two">
-<mt:include module="サイドバー2" />
+<mt:include module="<__trans phrase="Sidebar2">" />
   </mt:if>
-<mt:include module="サイドバー" />
+<mt:include module="<__trans phrase="Sidebar">" />
   </dl>
 </div>
 </mt:if>
 
-<mt:include module="フッター" />
+<mt:include module="<__trans phrase="Footer">" />
+</__trans_section>

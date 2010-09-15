@@ -1,3 +1,4 @@
+<__trans_section component="photolog">
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="<mt:DefaultLanguage />" xml:lang="<mt:DefaultLanguage />" id="sixapart-standard">
 <head>
@@ -5,7 +6,7 @@
   <meta http-equiv="Content-Script-Type" content="text/javascript" />
   <meta http-equiv="Content-Style-Type" content="text/css" />
   <meta name="generator" content="<mt:ProductName version="1" />" />
-  <link rel="stylesheet" href="<mt:Link template="スタイルシート" />" type="text/css" />
+  <link rel="stylesheet" href="<mt:Link template="<__trans phrase="Stylesheet">" />" type="text/css" />
 <mt:if name="main_template">
   <link rel="alternate" type="application/atom+xml" title="Atom" href="<mt:Link template="feed_recent" />" />
 </mt:if>
@@ -36,20 +37,20 @@
   </mt:unless>
 </mt:if>
 <mt:if name="datebased_archive">
-  <mt:ArchivePrevious><link rel="prev" href="<mt:ArchiveLink />" title="<mt:ArchiveTitle encode_html="1" />" /></mt:archivePrevious>
-  <mt:ArchiveNext><link rel="next" href="<mt:ArchiveLink />" title="<mt:ArchiveTitle encode_html="1" />" /></mt:archiveNext>
+  <mt:ArchivePrevious><link rel="prev" href="<mt:ArchiveLink />" title="<mt:ArchiveTitle encode_html="1" />" /></mt:ArchivePrevious>
+  <mt:ArchiveNext><link rel="next" href="<mt:ArchiveLink />" title="<mt:ArchiveTitle encode_html="1" />" /></mt:ArchiveNext>
 </mt:if>
 <mt:if name="entry_template">
-  <mt:EntryPrevious><link rel="prev" href="<mt:EntryPermalink />" title="<mt:EntryTitle encode_html="1" />" /></mt:entryPrevious>
-  <mt:EntryNext><link rel="next" href="<mt:EntryPermalink />" title="<mt:EntryTitle encode_html="1" />" /></mt:entryNext>
+  <mt:EntryPrevious><link rel="prev" href="<mt:EntryPermalink />" title="<mt:EntryTitle encode_html="1" />" /></mt:EntryPrevious>
+  <mt:EntryNext><link rel="next" href="<mt:EntryPermalink />" title="<mt:EntryTitle encode_html="1" />" /></mt:EntryNext>
 </mt:if>
   <mt:if name="feedback_template">
     <mt:EntryTrackbackData />
   </mt:if>
   <mt:GetVar name="html_head" />
   <script type="text/javascript" src="<mt:Link template="javascript" />"></script>
-<mt:Setvartemplate name="comment_pagination">
-<mt:Var name="comments_per_page" value="50" />
+<mt:SetVarTemplate name="comment_pagination">
+<mt:SetVar name="comments_per_page" value="50" />
 <mt:if tag="EntryCommentCount" gt="$comments_per_page">
 <script type="text/javascript">
      MT.entryID = <$mt:EntryID$>;
@@ -58,7 +59,7 @@
      MT.commentIds = [<mt:Comments sort_order="ascend" glue=","><mt:CommentID></mt:Comments>];
 </script>
 </mt:If>
-</mt:setvartemplate>
+</mt:SetVarTemplate>
 <mt:if name="archive_class" like="entry-archive|page-archive">
   <mt:GetVar name="comment_pagination">
 </mt:if>
@@ -75,3 +76,4 @@
 <mt:if tag="BlogDescription"><p class="blog-description"><mt:BlogDescription encode_html="1" /></p></mt:if>
   </div>
   <div id="box" class="clearfix">
+</__trans_section>

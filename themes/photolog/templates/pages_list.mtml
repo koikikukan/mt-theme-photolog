@@ -3,21 +3,21 @@
 <dd class="side">
   <ul>
   <mt:Pages no_folder="1" sort_by="title" sort_order="ascend">
-    <li class="page page-<$mt:PageID$>"><a href="<$mt:PagePermalink$>"><$mt:PageTitle$></a></li>
+    <li class="page page-<mt:PageID />"><a href="<mt:PagePermalink />"><mt:PageTitle /></a></li>
   </mt:Pages>
   <mt:TopLevelFolders>
-    <li class="folder folder-<$mt:FolderID$>"><strong><$mt:FolderLabel$></strong>
+    <li class="folder folder-<mt:FolderID />"><strong><mt:FolderLabel /></strong>
     <mt:Pages sort_by="title" sort_order="ascend">
       <mt:PagesHeader>
       <ul>
       </mt:PagesHeader>
-        <li class="page page-<$mt:PageID$>"><a href="<$mt:PagePermalink$>"><$mt:PageTitle$></a></li>
+        <li class="page page-<mt:PageID />"><a href="<mt:PagePermalink />"><mt:PageTitle /></a></li>
       <mt:PagesFooter>
       </ul>
       </mt:PagesFooter>
     </mt:Pages>
     </li>
-    <$mt:SubFolderRecurse$>
+    <mt:SubFolderRecurse />
   </mt:TopLevelFolders>
   </ul>
 </dd>

@@ -1,3 +1,4 @@
+<__trans_section component="photolog">
 <mt:unless name="page_layout" like="column">
   <mt:SetVar name="page_layout" value="layout-one-column" />
 </mt:unless>
@@ -7,28 +8,28 @@
   <mt:SetVarBlock name="page_title"><mt:ArchiveTitle /> archives</mt:SetVarBlock>
 </mt:if>
 <mt:if name="page_layout" like="layout-three-column">
-  <mt:ignore>3カラムレイアウトのサムネイル表示枚数と最大幅</mt:ignore>
+  <mt:ignore><__trans phrase="Number of thumbnail and max size of image for three column layout."></mt:ignore>
   <mt:SetVar name="thumbnail_max" value="4" />
   <mt:SetVar name="thumbnail_max_size" value="363px" />
 <mt:elseIf name="page_layout" like="layout-two-column">
-  <mt:ignore>2カラムレイアウトのサムネイル表示枚数と最大幅</mt:ignore>
+  <mt:ignore><__trans phrase="Number of thumbnail and max size of image for two column layout."></mt:ignore>
   <mt:SetVar name="thumbnail_max" value="6" />
   <mt:SetVar name="thumbnail_max_size" value="553px" />
 <mt:else>
-  <mt:ignore>1カラムレイアウトのサムネイル表示枚数と最大幅</mt:ignore>
+  <mt:ignore><__trans phrase="Number of thumbnail and max size of image for one column layout."></mt:ignore>
   <mt:SetVar name="thumbnail_max" value="8" />
   <mt:SetVar name="thumbnail_max_size" value="743px" />
 </mt:if>
-<mt:include module="ヘッダー" class="archive" />
+<mt:include module="<__trans phrase="Header">" class="archive" />
 
 <mt:if name="page_layout" like="layout-three-column-right|layout-three-column-liquid-right">
 <mt:else>
   <mt:if name="page_layout" like="three|left">
 <div id="links-left-box">
   <dl id="links-left">
-<mt:include module="サイドバー2" />
+<mt:include module="<__trans phrase="Sidebar2">" />
     <mt:if name="page_layout" like="two">
-<mt:include module="サイドバー" />
+<mt:include module="<__trans phrase="Sidebar">" />
     </mt:if>
   </dl>
 </div>
@@ -108,7 +109,7 @@ $('#gallery2').find('ul').css('width','<mt:GetVar name="thumbnail_max_size" />')
 <mt:if name="page_layout" like="layout-three-column-right|layout-three-column-liquid-right">
 <div id="links-left-box">
   <dl id="links-left">
-<mt:Include module="サイドバー2" />
+<mt:Include module="<__trans phrase="Sidebar2">" />
   </dl>
 </div>
 </mt:if>
@@ -117,11 +118,12 @@ $('#gallery2').find('ul').css('width','<mt:GetVar name="thumbnail_max_size" />')
 <div id="links-right-box">
   <dl id="links-right">
   <mt:if name="page_layout" like="two">
-<mt:include module="サイドバー2" />
+<mt:include module="<__trans phrase="Sidebar2">" />
   </mt:if>
-<mt:include module="サイドバー" />
+<mt:include module="<__trans phrase="Sidebar">" />
   </dl>
 </div>
 </mt:if>
 
-<mt:include module="フッター" />
+<mt:include module="<__trans phrase="Footer">" />
+</__trans_section>

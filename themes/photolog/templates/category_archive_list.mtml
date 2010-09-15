@@ -4,20 +4,20 @@ Categories
 </dt>
 
 <dd class="side" id="categories">
-<mt:topLevelCategories>
-  <mt:subCatIsFirst>
+<mt:TopLevelCategories>
+  <mt:SubCatIsFirst>
   <ul>
-  </mt:subCatIsFirst>
+  </mt:SubCatIsFirst>
     <mt:if tag="CategoryCount">
-    <li><a href="<mt:categoryArchiveLink />" title="<mt:categoryDescription />"><mt:categoryLabel /></a> [<mt:categoryCount />]
+    <li><a href="<mt:CategoryArchiveLink />" title="<mt:CategoryDescription />"><mt:CategoryLabel /></a> [<mt:CategoryCount />]
     <mt:else>
-    <li><mt:categoryLabel />
+    <li><mt:CategoryLabel />
   </mt:if>
-    <mt:subCatsRecurse />
+    <mt:SubCatsRecurse />
     </li>
-    <mt:subCatIsLast>
+    <mt:SubCatIsLast>
   </ul>
-    </mt:subCatIsLast>
-  </mt:topLevelCategories>
+    </mt:SubCatIsLast>
+  </mt:TopLevelCategories>
 </dd>
 </mt:ifArchiveTypeEnabled>

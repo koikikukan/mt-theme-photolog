@@ -1,7 +1,8 @@
+<__trans_section component="photolog">
 <mt:ifArchiveTypeEnabled archive_type="Daily">
-<dt class="sidetitle"><mt:date format="%B %Y" language="en" /></dt>
+<dt class="sidetitle"><mt:Date format="%B %Y" language="en" /></dt>
 <dd class="side" id="calendar">
-<table summary="投稿した日にリンクする月別のカレンダー">
+<table summary="<__trans phrase="Monthly Calendar">">
 <thead>
 <tr>
 <th abbr="Sunday"><span class="sunday">Sun</span></th>
@@ -14,14 +15,15 @@
 </tr>
 </thead>
 <tbody>
-<mt:calendar>
-<mt:calendarWeekHeader><tr></mt:calendarWeekHeader>
-<td<mt:calendarIfToday> class="today"</mt:calendarIfToday>><mt:calendarIfBlank><mt:else><span class="day"></mt:else></mt:calendarIfBlank>
-<mt:calendarIfEntries>
-<mt:entries lastn="1"><a href="<mt:entryLink archive_type="Daily" />"><mt:calendarDay /></a></mt:entries>
-</mt:calendarIfEntries><mt:calendarIfNoEntries><mt:calendarDay /></mt:calendarIfNoEntries><mt:calendarIfBlank>
-<mt:else></span></mt:else></mt:calendarIfBlank></td><mt:calendarWeekFooter></tr></mt:calendarWeekFooter></mt:calendar>
+<mt:Calendar>
+<mt:CalendarWeekHeader><tr></mt:CalendarWeekHeader>
+<td<mt:CalendarIfToday> class="today"</mt:CalendarIfToday>><mt:CalendarIfBlank><mt:else><span class="day"></mt:else></mt:CalendarIfBlank>
+<mt:CalendarIfEntries>
+<mt:Entries lastn="1"><a href="<mt:EntryLink archive_type="Daily" />"><mt:CalendarDay /></a></mt:Entries>
+</mt:CalendarIfEntries><mt:CalendarIfNoEntries><mt:CalendarDay /></mt:CalendarIfNoEntries><mt:CalendarIfBlank>
+<mt:else></span></mt:else></mt:CalendarIfBlank></td><mt:CalendarWeekFooter></tr></mt:CalendarWeekFooter></mt:Calendar>
 </tbody>
 </table>
 </dd>
 </mt:ifArchiveTypeEnabled>
+</__trans_section>

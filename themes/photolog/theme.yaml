@@ -1,14 +1,16 @@
 id: photolog
 label: Photolog
 name: Photolog
-version: 0.57
+version: 0.60
 author_link: http://www.koikikukan.com/
 author_name: Yujiro Araki
 class: blog
-description: シンプルなフォトログ用テーマです。画像のアップロードは、ブログ記事投稿画面右下にある「ブログ記事アイテム」から追加を行うだけです。スタイル機能を使って、デザイン変更やカラムレイアウトの切り替えが行えます。
+description: <__trans phrase="This is theme for photolog." />
 thumbnail_file: thumb.png
 thumbnail_file_medium: thumb-medium.png
 thumbnail_file_small: thumb-small.png
+l10n_lexicon:
+  ja: l10n_ja.yaml
 elements: 
   blog_static_files: 
     component: ~

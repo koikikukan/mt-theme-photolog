@@ -1,4 +1,6 @@
+<__trans_section component="photolog">
 {
-    "direction": "<mt:Var name="commentDirection">",
-    "comments": "<mt:Comments sort_order="$commentDirection"><$mt:Include module="コメント詳細" replace="\","\\" replace='"','\"' strip_linefeeds="1"$></mt:Comments>"
+    "direction": "<mt:GetVar name="commentDirection">",
+    "comments": "<mt:Comments sort_order="$commentDirection"><mt:include module="<__trans phrase="Comment Detail">" replace="\","\\" replace='"','\"' strip_linefeeds="1" /></mt:Comments>"
 }
+</__trans_section>

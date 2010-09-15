@@ -1,15 +1,16 @@
-<mt:entryIfCommentsOpen> 
+<__trans_section component="photolog">
+<mt:EntryIfCommentsOpen> 
 <div class="comments-open" id="comments-open">
-   <h2 class="comments-open-header">コメントする</h2>
+   <h2 class="comments-open-header"><__trans phrase="Leave a comment"></h2>
    <div class="comments-open-content">
    <div id="comment-greeting"></div>
    <form method="post" action="<mt:CGIPath /><mt:CommentScript />" id="comments-form" onsubmit="return mtCommentOnSubmit(this)">
    <fieldset>
       <input type="hidden" name="static" value="1" />
-      <input type="hidden" name="entry_id" value="<mt:entryID />" />
-      <input type="hidden" name="__lang" value="<mt:blogLanguage />" />
+      <input type="hidden" name="entry_id" value="<mt:EntryID />" />
+      <input type="hidden" name="__lang" value="<mt:BlogLanguage />" />
       <mt:if name="body_class" like="mt-comment-preview|mt-comment-error">
-        <mt:ifCommentParent><input type="hidden" name="parent_id" value="<mt:commentParentID />" id="comment-parent-id" /></mt:ifCommentParent>
+        <mt:ifCommentParent><input type="hidden" name="parent_id" value="<mt:CommentParentID />" id="comment-parent-id" /></mt:ifCommentParent>
       <mt:else>
         <input type="hidden" name="parent_id" value="" id="comment-parent-id" />
       </mt:if>
@@ -19,26 +20,26 @@
       <div id="comments-open-data">
          <div id="comment-form-name">
             <p>
-               <label for="comment-author">名前:</label>
-               <input id="comment-author" name="author" tabindex="1" accesskey="n" size="30" value="<mt:if name="comment_preview_template"><mt:commentAuthor /></mt:if>" onfocus="<mt:if name="body_class" like="mt-comment-preview|mt-comment-error">mtShowCaptcha()<mt:else>mtCommentFormOnFocus()</mt:if>" />
+               <label for="comment-author"><__trans phrase="Name">:</label>
+               <input id="comment-author" name="author" tabindex="1" accesskey="n" size="30" value="<mt:if name="comment_preview_template"><mt:CommentAuthor /></mt:if>" onfocus="<mt:if name="body_class" like="mt-comment-preview|mt-comment-error">mtShowCaptcha()<mt:else>mtCommentFormOnFocus()</mt:if>" />
             </p>
          </div>
          <div id="comment-form-email">
             <p>
-               <label for="comment-email">メールアドレス:</label>
-               <input id="comment-email" name="email" tabindex="2" accesskey="m" size="30" value="<mt:if name="comment_preview_template"><mt:commentEmail /></mt:if>" onfocus="<mt:if name="body_class" like="mt-comment-preview|mt-comment-error">mtShowCaptcha()<mt:else>mtCommentFormOnFocus()</mt:if>" />
+               <label for="comment-email"><__trans phrase="Email Address">:</label>
+               <input id="comment-email" name="email" tabindex="2" accesskey="m" size="30" value="<mt:if name="comment_preview_template"><mt:CommentEmail /></mt:if>" onfocus="<mt:if name="body_class" like="mt-comment-preview|mt-comment-error">mtShowCaptcha()<mt:else>mtCommentFormOnFocus()</mt:if>" />
             </p>
          </div>
          <div id="comment-form-url">
             <p>
                <label for="comment-url">URL:</label>
-               <input id="comment-url" name="url" tabindex="3" accesskey="u" size="30" value="<mt:if name="comment_preview_template"><mt:commentURL /></mt:if>" onfocus="<mt:if name="body_class" like="mt-comment-preview|mt-comment-error">mtShowCaptcha()<mt:else>mtCommentFormOnFocus()</mt:if>" />
+               <input id="comment-url" name="url" tabindex="3" accesskey="u" size="30" value="<mt:if name="comment_preview_template"><mt:CommentURL /></mt:if>" onfocus="<mt:if name="body_class" like="mt-comment-preview|mt-comment-error">mtShowCaptcha()<mt:else>mtCommentFormOnFocus()</mt:if>" />
             </p>
          </div>
          <div id="comment-form-remember-me">
             <p>
                <label for="comment-bake-cookie"><input type="checkbox" id="comment-bake-cookie" name="bakecookie" tabindex="4" accesskey="r" value="1" onclick="mtRememberMeOnClick(this)" onkeypress="mtRememberMeOnClick(this)" />
-               ログイン情報を記憶</label>
+               <__trans phrase="Remember personal info?"></label>
             </p>
          </div>
       </div>
@@ -47,13 +48,13 @@
          <label for="comment-reply" id="comment-reply-label"></label>
       </div>
       <p id="comments-open-text">
-         <label for="comment-text">コメント:<mt:ifAllowCommentHTML>(スタイル用のHTMLタグが使えます)</mt:ifAllowCommentHTML></label>
-         <textarea id="comment-text" name="text" tabindex="6" accesskey="t" rows="10" cols="30" onfocus="if (this.value == 'Please comment') this.value = '';" onblur="if (this.value == '') this.value = 'Please comment';<mt:if name="body_class" like="mt-comment-preview|mt-comment-error">mtShowCaptcha()<mt:else>mtCommentFormOnFocus()</mt:if>"><mt:if name="body_class" like="mt-comment-preview|mt-comment-error"><mt:commentBody autolink="0" sanitize="0" convert_breaks="0" encode_html="1" /><mt:else>Please comment</mt:if></textarea>
+         <label for="comment-text"><__trans phrase="Comments">:<mt:ifAllowCommentHTML><__trans phrase="(You may use HTML tags for style)"></mt:ifAllowCommentHTML></label>
+         <textarea id="comment-text" name="text" tabindex="6" accesskey="t" rows="10" cols="30" onfocus="if (this.value == 'Please comment') this.value = '';" onblur="if (this.value == '') this.value = 'Please comment';<mt:if name="body_class" like="mt-comment-preview|mt-comment-error">mtShowCaptcha()<mt:else>mtCommentFormOnFocus()</mt:if>"><mt:if name="body_class" like="mt-comment-preview|mt-comment-error"><mt:CommentBody autolink="0" sanitize="0" convert_breaks="0" encode_html="1" /><mt:else>Please comment</mt:if></textarea>
       </p>
       <div id="comments-open-captcha"></div>
       <div id="comments-open-footer" class="comments-open-footer">
-        <input type="submit" tabindex="6" accesskey="v" name="preview_button" id="comment-preview" value="確認"  onclick="this.form.preview.value='1';" onkeypress="this.form.preview.value='1';" />
-        <input type="submit" tabindex="7" accesskey="s" name="post" id="comment-submit" value="投稿" />
+        <input type="submit" tabindex="6" accesskey="v" name="preview_button" id="comment-preview" value="<__trans phrase="Preview">"  onclick="this.form.preview.value='1';" onkeypress="this.form.preview.value='1';" />
+        <input type="submit" tabindex="7" accesskey="s" name="post" id="comment-submit" value="<__trans phrase="Submit">" />
       </div>
    </fieldset>
    </form>
@@ -65,4 +66,5 @@
     </script>
    </div>
 </div>
-</mt:entryIfCommentsOpen>
+</mt:EntryIfCommentsOpen>
+</__trans_section>
