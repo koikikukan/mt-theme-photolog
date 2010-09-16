@@ -1,0 +1,105 @@
+# テーマ一覧
+This is theme for photolog.: シンプルなフォトログ用テーマです。画像のアップロードは、ブログ記事投稿画面右下にある「ブログ記事アイテム」から追加を行うだけです。スタイル機能を使って、デザイン変更やカラムレイアウトの切り替えが行えます。
+
+# テンプレートモジュール
+Categories: カテゴリ
+Comment Detail: コメント詳細
+Comment Form: コメント入力フォーム
+Comment Preview: コメントプレビュー
+Comment Response: コメント完了
+Comments: コメント
+Counter: カウンタ
+Dynamic Error: ダイナミックパブリッシングエラー
+Entry: ブログ記事
+Entry Detail: ブログ記事の詳細
+Entry Listing: ブログ記事リスト
+Entry Metadata: ブログ記事のメタデータ
+Entry Summary: ブログ記事の概要
+Footer: フッター
+Header: ヘッダー
+Links: リンク
+Main Index: メインページ
+Page: ウェブページ
+Page Detail: ウェブページの詳細
+Popup Image: ポップアップ画像
+Recent Trackbacks: 最近のトラックバック
+Search Results: 検索結果
+Stylesheet: スタイルシート
+Sidebar: サイドバー
+Sidebar2: サイドバー2
+Sidebar3: サイドバー3
+Tags: タグ
+TrackBacks: トラックバック
+Search: 検索
+Monthly Archive: 月別アーカイブ
+Category Archive: カテゴリアーカイブ
+Monthly Category Archive: カテゴリ月別アーカイブ
+Recently Entries: 最近のブログ記事
+Recently Comments: 最近のコメント
+Recently Trackbacks: 最近のトラックバック
+Tag Clouds: タグクラウド
+Feed: 購読
+3-column layout - Primary Sidebar: 3カラムのサイドバー(メイン)
+3-column layout - Secondary Sidebar: 3カラムのサイドバー(サブ)
+3-column layout - Thirdry Sidebar: 3カラムのサイドバー(中央)
+
+# メインページ
+Image size and number of thumbnail for three column layout.: 3カラムレイアウトの画像サイズとサムネイル表示枚数
+Image size and number of thumbnail for two column layout.: 2カラムレイアウトの画像サイズとサムネイル表示枚数
+Image size and number of thumbnail for one column layout.: 1カラムレイアウトの画像サイズとサムネイル表示枚数
+
+# ブログ記事リスト・検索結果
+Number of thumbnail and max size of image for three column layout.: 3カラムレイアウトのサムネイル表示枚数と最大幅
+Number of thumbnail and max size of image for two column layout.: 2カラムレイアウトのサムネイル表示枚数と最大幅
+Number of thumbnail and max size of image for one column layout.: 1カラムレイアウトのサムネイル表示枚数と最大幅
+
+# コメント
+Old Comments: 古いコメント
+New Comments: 新しいコメント
+
+# コメント詳細
+Replying to comment from: さんのコメントへの返信
+
+# コメントフォーム
+Leave a comment: コメントする
+Name: 名前
+Email Address: メールアドレス
+Remember personal info?: ログイン情報を記憶
+(You may use HTML tags for style): (スタイル用のHTMLタグが使えます)
+Preview: 確認
+Submit: 投稿
+
+# コメントプレビュー
+Previewing your Comment: コメントの確認
+
+# コメント完了
+Your comment has been received and held for approval by the blog owner.: コメントは現在承認されるまで公開を保留されています。
+Thank you for commenting. Your comment has been received and held for approval by the blog owner.: コメントを受け付けました。受け付けたコメントは、ブログの管理者の承認のため保留されています。
+Thank you for commenting.: コメントありがとうございます。
+Comment Pending: コメント保留中
+Confirmation...: 投稿完了の確認
+Your comment has been submitted!: コメントを投稿しました。
+Your comment submission failed for the following reasons: コメントの投稿に失敗しました
+Comment Submission Error: コメント投稿エラー
+Return to the original entry.: 元のブログ記事に戻る
+Comment Submission Error: コメント投稿エラー
+Your comment submission failed.: コメントの登録が失敗しました
+
+# ウィジェット
+Monthly Calendar: 投稿した日にリンクする月別のカレンダー
+Category Listing: カテゴリ一覧
+Monthly Listing: 月別一覧
+Author Listing: ユーザー一覧
+Category Monthly Listing: 月別カテゴリ一覧
+Author Monthly Listing: 月別ユーザー一覧
+Entry Listing: ブログ記事一覧
+Set links this.: ここにリンクを記述
+
+# 検索結果
+Results matching &ldquo;[_1]&rdquo;: 「[_1]」の検索結果
+Results tagged &ldquo;[_1]&rdquo;: タグ「[_1]」の検索結果
+No results found for &ldquo;[_1]&rdquo;.: 「[_1]」と一致する結果は見つかりませんでした。
+
+# ダイナミックパブリッシング
+Page Not Found: ページが見つかりません
+Koiki-kukan: 小粋空間
