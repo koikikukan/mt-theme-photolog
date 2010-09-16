@@ -127,7 +127,7 @@ return true;
 </mt:PagerBlock>
 <mt:unless name="result_number" eq="1">
   <div class="content-nav">
-<mt:ifPreviousResults><a href="<mt:PreviousLink />" rel="prev" onclick="return swapContent(-1);">&lt; <__trans phrase="Previous"></a>&nbsp;&nbsp;</mt:ifPreviousResults><mt:PagerBlock><mt:ifCurrentPage><mt:Var name="__value__" /><mt:else><a href="<mt:PagerLink />"><mt:GetVar name="__value__" /></a></mt:ifCurrentPage><mt:unless name="__last__">&nbsp;</mt:unless></mt:PagerBlock><mt:ifMoreResults>&nbsp;&nbsp;<a href="<mt:NextLink />" rel="next" onclick="return swapContent();"><__trans phrase="Next"> &gt;</a></mt:ifMoreResults>
+<mt:ifPreviousResults><a href="<mt:PreviousLink />">&lt; <__trans phrase="Previous"></a>&nbsp;&nbsp;</mt:ifPreviousResults><mt:PagerBlock><mt:ifCurrentPage><mt:Var name="__value__" /><mt:else><a href="<mt:PagerLink />"><mt:GetVar name="__value__" /></a></mt:ifCurrentPage><mt:unless name="__last__">&nbsp;</mt:unless></mt:PagerBlock><mt:ifMoreResults>&nbsp;&nbsp;<a href="<mt:NextLink />"><__trans phrase="Next"> &gt;</a></mt:ifMoreResults>
   </div>
 </mt:unless>
 <mt:SetVar name="counter" op="--" />
