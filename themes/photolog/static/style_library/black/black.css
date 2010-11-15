@@ -160,6 +160,7 @@ td.today {
 }
 
 #comment-text {
+    color: #000;
     background: #eee;
     border: 1px solid #666;
 }
